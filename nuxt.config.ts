@@ -8,6 +8,7 @@ const config: Configuration = {
     },
   },
   buildModules: ['@nuxt/typescript-build'],
+  css: ['reset-css'],
 };
 
 module.exports = config;

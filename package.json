@@ -29,8 +29,10 @@
   },
   "dependencies": {
     "@nuxt/typescript-build": "^0.6.6",
+    "contentful": "^7.14.4",
     "nuxt": "^2.12.2",
     "nuxt-property-decorator": "^2.7.2",
-    "postcss-short": "^5.0.0"
+    "postcss-short": "^5.0.0",
+    "reset-css": "^5.0.1"
   }
 }
