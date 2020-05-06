@@ -10,8 +10,8 @@ const getContentfulClient = (space: string, accessToken: string) => {
   return contentful.createClient({ space, accessToken });
 };
 
-const plugin: Plugin = (context, inject): void => {
-  const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = process.env;
+const plugin: Plugin = ({ env }, inject): void => {
+  const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = env;
 
   if (!CONTENTFUL_SPACE_ID || !CONTENTFUL_ACCESS_TOKEN) {
     throw new Error(

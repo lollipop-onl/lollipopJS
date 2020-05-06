@@ -7,8 +7,12 @@ const config: Configuration = {
       plugins: { 'postcss-short': {} },
     },
   },
-  buildModules: ['@nuxt/typescript-build'],
+  buildModules: [
+    '@nuxt/typescript-build',
+    ['@nuxtjs/dotenv', { path: __dirname }],
+  ],
   css: ['reset-css'],
+  plugins: ['~/plugins/contentful'],
 };
 
 module.exports = config;
