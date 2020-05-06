@@ -1,0 +1,9 @@
+{
+  "name": "lollipopJS",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/lollipop-onl/lollipopJS.git",
+  "author": "lollipop-onl <lollipop@simochee.net>",
+  "license": "MIT",
+  "private": true
+}
