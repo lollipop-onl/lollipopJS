@@ -10,6 +10,8 @@ import { BlogPost, BlogTag } from '@/types';
 const ENTRIES_PER_PAGE = 1000;
 /** ブログポストのID */
 const BLOG_POST_CONTENT_TYPE_ID = 'blogPost';
+/** ブログポストの１ページあたりの記事数 */
+const BLOG_POST_PER_PAGE = 30;
 
 /**
  * Contentfulのデータを管理するプラグイン
@@ -55,6 +57,15 @@ class ContentfulPlugin {
     limit = 1000
   ): Promise<EntryCollection<BlogPost | BlogTag>> {
     return await this.client.getEntries({ skip, limit });
+  }
+
+  /**
+   * ブログポストの一覧を取得する
+   * @param skip
+   * @param limit
+   */
+  getBlogPosts(skip = 0, limit = BLOG_POST_PER_PAGE): Array<Entry<BlogPost>> {
+    return this.allBlogPosts.slice(skip * limit, skip * limit + limit);
   }
 
   /**

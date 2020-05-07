@@ -16,20 +16,19 @@ export default class PostDetailPage extends Vue {
   blogPost!: Entry<BlogPost>;
 
   /** Lifecycle hooks */
-  asyncData({ app, params }: Context): any {
+  asyncData({ app, error, params }: Context): any {
     const { slug } = params;
     const blogPost = app.$contentful.getBlogPost(slug);
+
+    if (!blogPost) {
+      error({ statusCode: 404 });
+
+      return;
+    }
 
     return {
       blogPost,
     };
-  }
-
-  /** Lifecycle hooks */
-  validate({ app, params }: Context): boolean {
-    const { slug } = params;
-
-    return !!app.$contentful.getBlogPost(slug);
   }
 }
 </script>

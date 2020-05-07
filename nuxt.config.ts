@@ -12,7 +12,7 @@ const config: Configuration = {
     ['@nuxtjs/dotenv', { path: __dirname }],
   ],
   css: ['reset-css'],
-  plugins: ['~/plugins/contentful'],
+  plugins: ['~/plugins/contentful', '~/plugins/globals'],
 };
 
 module.exports = config;
