@@ -1,13 +1,13 @@
-import { ContentfulClientApi } from 'contentful';
+import ContentfulPlugin from '@/plugins/contentful/ContentfulPlugin';
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $contentful: ContentfulClientApi;
+    $contentful: ContentfulPlugin;
   }
 }
 
 declare module '@nuxt/types' {
   interface NuxtAppOptions {
-    $contentful: ContentfulClientApi;
+    $contentful: ContentfulPlugin;
   }
 }
