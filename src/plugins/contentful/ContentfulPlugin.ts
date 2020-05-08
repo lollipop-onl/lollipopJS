@@ -5,7 +5,7 @@ import {
   createClient,
 } from 'contentful';
 import { Context } from '@nuxt/types';
-import { BlogPost, ContentfulEntry } from '@/types';
+import { BlogCategory, BlogPost, ContentfulEntry } from '@/types';
 import { ContentfulContentType } from '@/constants';
 import { Store } from '@/store';
 
@@ -32,10 +32,17 @@ class ContentfulPlugin {
     return this.store.state.contentfulEntries;
   }
 
-  /**  */
+  /** すべてのブログポスト */
   public get allBlogPosts(): Entry<BlogPost>[] {
     return this.entries.filter((entry): entry is Entry<BlogPost> => {
       return entry.sys.contentType.sys.id === ContentfulContentType.BLOG_POST;
+    });
+  }
+
+  /** すべてのカテゴリ */
+  public get allCategories(): Entry<BlogCategory>[] {
+    return this.entries.filter((entry): entry is Entry<BlogCategory> => {
+      return entry.sys.contentType.sys.id === ContentfulContentType.CATEGORY;
     });
   }
 
@@ -83,6 +90,41 @@ class ContentfulPlugin {
    */
   getBlogPost(slug: string): Entry<BlogPost> | undefined {
     return this.allBlogPosts.find((post) => post.fields.slug === slug);
+  }
+
+  /**
+   * スラッグからカテゴリを取得する
+   * @param slug
+   */
+  getCategory(slug: string): Entry<BlogCategory> | undefined {
+    return this.allCategories.find((entry) => entry.fields.slug === slug);
+  }
+
+  /**
+   * スラッグからカテゴリのブログポストの一覧を取得する
+   * @param slug
+   */
+  getAllCategoryBlogPosts(slug: string): Entry<BlogPost>[] {
+    return this.allBlogPosts.filter(
+      (post) => post.fields.category.fields.slug === slug
+    );
+  }
+
+  /**
+   * カテゴリのスラッグからブログポストの一覧を取得する
+   * @param slug
+   * @param skip
+   * @param limit
+   */
+  getCategoryBlogPosts(
+    slug: string,
+    skip = 0,
+    limit = this.context.app.$C.BLOG_POST_PER_PAGE
+  ): Entry<BlogPost>[] {
+    return this.getAllCategoryBlogPosts(slug).slice(
+      skip * limit,
+      skip * limit + limit
+    );
   }
 }
 
