@@ -13,8 +13,6 @@
       :total="$contentful.getAllCategoryBlogPosts(slug).length"
       :perPage="$C.BLOG_POST_PER_PAGE"
       :page="page"
-      :beforeOffset="1"
-      :afterOffset="2"
     )
 </template>
 
