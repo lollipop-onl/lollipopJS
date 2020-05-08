@@ -6,7 +6,11 @@
 import { Component, Vue } from 'nuxt-property-decorator';
 
 @Component
-export default class IndexPage extends Vue {}
+export default class IndexPage extends Vue {
+  mounted(): void {
+    console.log(this.$contentful.allBlogPosts);
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>

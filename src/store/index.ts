@@ -4,11 +4,11 @@ import {
   DefineStoreModule,
 } from '@lollipop-onl/vuex-typesafe-helper';
 import { Entry } from 'contentful';
-import { BlogCategory, BlogPost, BlogTag } from '@/types';
+import { ContentfulEntry } from '@/types';
 
 export interface IState {
   /** Contentfulから取得したエントリ */
-  contentfulEntries: Array<Entry<BlogPost | BlogCategory | BlogTag>>;
+  contentfulEntries: Entry<ContentfulEntry>[];
 }
 export const state = (): IState => ({
   contentfulEntries: [],
@@ -18,10 +18,7 @@ export const getters = {};
 
 export const mutations = {
   /** Contentfulのエントリを追加する */
-  addContentfulEntries(
-    state: IState,
-    entries: Array<Entry<BlogPost | BlogCategory | BlogTag>>
-  ): void {
+  addContentfulEntries(state: IState, entries: Entry<ContentfulEntry>[]): void {
     state.contentfulEntries = state.contentfulEntries.concat(entries);
   },
 };
@@ -31,9 +28,9 @@ export type Ctx = DefineActionContext<IState, typeof getters, typeof mutations>;
 export const actions = {
   /** Nuxtのサーバーサイドで実行されるフック */
   async nuxtServerInit({ commit }: Ctx, { app }: Context): Promise<void> {
-    const entries = await app.$contentful.fetchEntries();
+    const entries = await app.$contentful.fetchAllEntries();
 
-    commit('addContentfulEntries', entries.items);
+    commit('addContentfulEntries', entries);
   },
 };
 

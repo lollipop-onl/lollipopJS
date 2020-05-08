@@ -19,3 +19,5 @@ export type BlogPost = {
   tags: Entry<BlogTag>;
   title: string;
 };
+
+export type ContentfulEntry = BlogCategory | BlogTag | BlogPost;

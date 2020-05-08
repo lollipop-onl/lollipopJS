@@ -20,33 +20,17 @@ export default class ArchivesPage extends Vue {
   /** ページに表示するブログポスト */
   get blogPosts(): Array<Entry<BlogPost>> {
     const { query } = this.$route;
-    const p = this.$utils.qv(query, 'p') ?? 1;
-
-    if (p == null) {
-      return [];
-    }
-
+    const p = this.$utils.qv(query, 'p') || '1';
     const pageNumber = +p - 1;
 
     return this.$contentful.getBlogPosts(pageNumber);
   }
 
   /** ライフサイクルフック */
-  validate({ params }: Context): boolean {
-    const { page } = params;
+  validate({ app, query }: Context): boolean {
+    const p = app.$utils.qv(query, 'p') || '1';
 
-    return page == null || /^[0-9]+$/.test(page);
-  }
-
-  /** ライフサイクルフック */
-  fetch(): void {
-    if (this.blogPosts.length === 0) {
-      this.$nuxt.error({ statusCode: 404 });
-    }
-  }
-
-  mounted(): void {
-    console.log(this.blogPosts);
+    return !Number.isNaN(+p);
   }
 }
 </script>

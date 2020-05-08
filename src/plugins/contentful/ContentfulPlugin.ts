@@ -5,15 +5,12 @@ import {
   createClient,
 } from 'contentful';
 import { Context } from '@nuxt/types';
-import { BlogCategory, BlogPost, BlogTag } from '@/types';
+import { BlogPost, ContentfulEntry } from '@/types';
+import { ContentfulContentType } from '@/constants';
 import { Store } from '@/store';
 
 /** エントリーの１ページあたりの取得数 */
 const ENTRIES_PER_PAGE = 1000;
-/** ブログポストのID */
-const BLOG_POST_CONTENT_TYPE_ID = 'blogPost';
-/** ブログポストの１ページあたりの記事数 */
-const BLOG_POST_PER_PAGE = 30;
 
 /**
  * Contentfulのデータを管理するプラグイン
@@ -24,27 +21,36 @@ class ContentfulPlugin {
 
   constructor(private context: Context, space?: string, accessToken?: string) {
     if (!space || !accessToken) {
-      throw new Error('Error msg');
+      throw new Error('space_id or access_token is unspecified.');
     }
 
     this.client = createClient({ space, accessToken });
   }
 
   /** ContentfulのEntries */
-  public get entries(): Array<Entry<BlogPost | BlogCategory | BlogTag>> {
+  public get entries(): Entry<ContentfulEntry>[] {
     return this.store.state.contentfulEntries;
   }
 
   /**  */
-  public get allBlogPosts(): Array<Entry<BlogPost>> {
+  public get allBlogPosts(): Entry<BlogPost>[] {
     return this.entries.filter((entry): entry is Entry<BlogPost> => {
-      return entry.sys.contentType.sys.id === BLOG_POST_CONTENT_TYPE_ID;
+      return entry.sys.contentType.sys.id === ContentfulContentType.BLOG_POST;
     });
   }
 
   /** Vuex Storeのインスタンス */
   private get store(): Store {
     return this.context.store as any;
+  }
+
+  /**
+   * すべてのエントリーを取得する
+   */
+  public async fetchAllEntries(): Promise<Entry<ContentfulEntry>[]> {
+    const { items } = await this.fetchEntries();
+
+    return items;
   }
 
   /**
@@ -55,7 +61,7 @@ class ContentfulPlugin {
   public async fetchEntries(
     skip = 0,
     limit = ENTRIES_PER_PAGE
-  ): Promise<EntryCollection<BlogPost | BlogCategory | BlogTag>> {
+  ): Promise<EntryCollection<ContentfulEntry>> {
     return await this.client.getEntries({ skip, limit });
   }
 
@@ -64,7 +70,10 @@ class ContentfulPlugin {
    * @param skip
    * @param limit
    */
-  getBlogPosts(skip = 0, limit = BLOG_POST_PER_PAGE): Array<Entry<BlogPost>> {
+  getBlogPosts(
+    skip = 0,
+    limit = this.context.app.$C.BLOG_POST_PER_PAGE
+  ): Entry<BlogPost>[] {
     return this.allBlogPosts.slice(skip * limit, skip * limit + limit);
   }
 
