@@ -3,8 +3,14 @@ import generateRoutePaths from './src/utils/generateRoutePaths';
 
 require('dotenv').config();
 
+const { CONTENTFUL_SPACE_ID = '', CONTENTFUL_ACCESS_TOKEN = '' } = process.env;
+
 const config: Configuration = {
   srcDir: 'src',
+  env: {
+    CONTENTFUL_ACCESS_TOKEN,
+    CONTENTFUL_SPACE_ID,
+  },
   build: {
     postcss: {
       plugins: { 'postcss-short': {} },
