@@ -2,15 +2,14 @@ import * as contentful from 'contentful';
 import { Plugin } from '@nuxt/types';
 import ContentfulPlugin from './ContentfulPlugin';
 
-const plugin: Plugin = async ({ env }, inject): Promise<void> => {
-  const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = env;
+const plugin: Plugin = (context, inject) => {
+  const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = context.env;
 
   const contentfulPlugin = new ContentfulPlugin(
+    context,
     CONTENTFUL_SPACE_ID,
     CONTENTFUL_ACCESS_TOKEN
   );
-
-  await contentfulPlugin.fetchContentfulData();
 
   inject('contentful', contentfulPlugin);
 };

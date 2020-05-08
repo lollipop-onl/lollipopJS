@@ -4,7 +4,9 @@ import {
   EntryCollection,
   createClient,
 } from 'contentful';
-import { BlogPost, BlogTag } from '@/types';
+import { Context } from '@nuxt/types';
+import { BlogCategory, BlogPost, BlogTag } from '@/types';
+import { Store } from '@/store';
 
 /** エントリーの１ページあたりの取得数 */
 const ENTRIES_PER_PAGE = 1000;
@@ -20,15 +22,17 @@ class ContentfulPlugin {
   /** Contentful Client */
   private client: ContentfulClientApi;
 
-  /** Entry Collection */
-  private entries: Array<Entry<BlogPost | BlogTag>> = [];
-
-  constructor(space?: string, accessToken?: string) {
+  constructor(private context: Context, space?: string, accessToken?: string) {
     if (!space || !accessToken) {
       throw new Error('Error msg');
     }
 
     this.client = createClient({ space, accessToken });
+  }
+
+  /** ContentfulのEntries */
+  public get entries(): Array<Entry<BlogPost | BlogCategory | BlogTag>> {
+    return this.store.state.contentfulEntries;
   }
 
   /**  */
@@ -38,13 +42,9 @@ class ContentfulPlugin {
     });
   }
 
-  /**
-   * データを取得する
-   */
-  public async fetchContentfulData(): Promise<void> {
-    const { items } = await this.fetchEntries(0, ENTRIES_PER_PAGE);
-
-    this.entries = items;
+  /** Vuex Storeのインスタンス */
+  private get store(): Store {
+    return this.context.store as any;
   }
 
   /**
@@ -52,10 +52,10 @@ class ContentfulPlugin {
    * @param skip
    * @param limit
    */
-  private async fetchEntries(
+  public async fetchEntries(
     skip = 0,
-    limit = 1000
-  ): Promise<EntryCollection<BlogPost | BlogTag>> {
+    limit = ENTRIES_PER_PAGE
+  ): Promise<EntryCollection<BlogPost | BlogCategory | BlogTag>> {
     return await this.client.getEntries({ skip, limit });
   }
 
