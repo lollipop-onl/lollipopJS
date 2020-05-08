@@ -7,23 +7,40 @@
           | Category:
           NuxtLink(:to="$utils.url($C.PAGES.BLOG_CATEGORY, { slug: post.fields.category.fields.slug })") {{ post.fields.category.fields.name }}
         p {{ $store.state.count }}
+    AppPagination(
+      :to="$C.PAGES.BLOG_ARCHIVES"
+      :total="$contentful.allBlogPosts.length"
+      :perPage="$C.BLOG_POST_PER_PAGE"
+      :page="page"
+      :beforeOffset="1"
+      :afterOffset="2"
+    )
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator';
 import { Context } from '@nuxt/types';
+import { Component, Vue } from 'nuxt-property-decorator';
 import { Entry } from 'contentful';
+import AppPagination from '@/components/AppPagination.vue';
 import { BlogPost } from '@/types';
 
-@Component
+@Component({
+  components: {
+    AppPagination,
+  },
+})
 export default class ArchivesPage extends Vue {
-  /** ページに表示するブログポスト */
-  get blogPosts(): Array<Entry<BlogPost>> {
+  /** 表示中のページ番号 */
+  get page(): number {
     const { query } = this.$route;
     const p = this.$utils.qv(query, 'p') || '1';
-    const pageNumber = +p - 1;
 
-    return this.$contentful.getBlogPosts(pageNumber);
+    return +p;
+  }
+
+  /** ページに表示するブログポスト */
+  get blogPosts(): Array<Entry<BlogPost>> {
+    return this.$contentful.getBlogPosts(this.page - 1);
   }
 
   /** ライフサイクルフック */
