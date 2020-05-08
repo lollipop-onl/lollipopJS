@@ -1,6 +1,6 @@
 import { createClient, Entry } from 'contentful';
 import { ContentfulContentType, PAGES } from '../constants';
-import { BlogCategory, BlogPost, ContentfulEntry } from '../types';
+import { BlogCategory, BlogPost, ContentfulEntry, DiaryPost } from '../types';
 import { url } from './url';
 
 /** EntryがBlogPostかどうか */
@@ -13,6 +13,11 @@ const isCategoryEntry = (
   entry: Entry<unknown>
 ): entry is Entry<BlogCategory> => {
   return entry.sys.contentType.sys.id === ContentfulContentType.CATEGORY;
+};
+
+/** EntryがDiaryPostかどうか */
+const isDiaryPostEntry = (entry: Entry<unknown>): entry is Entry<DiaryPost> => {
+  return entry.sys.contentType.sys.id === ContentfulContentType.DIARY_POST;
 };
 
 /**
@@ -39,6 +44,10 @@ const getDynamicRoutePaths = async (
 
     if (isCategoryEntry(entry)) {
       routes.push(url(PAGES.BLOG_CATEGORY, { slug: entry.fields.slug }));
+    }
+
+    if (isDiaryPostEntry(entry)) {
+      routes.push(url(PAGES.DIARY_POST, { id: entry.sys.id }));
     }
 
     return routes;

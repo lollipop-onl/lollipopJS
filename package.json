@@ -8,6 +8,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt-ts",
+    "build": "nuxt-ts generate",
     "lint:js": "eslint --ext .ts,.vue .",
     "lint:css": "stylelint \"src/**/*.{vue,scss}\""
   },
