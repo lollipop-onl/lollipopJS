@@ -20,8 +20,13 @@ const config: Configuration = {
     '@nuxt/typescript-build',
     ['@nuxtjs/dotenv', { path: __dirname }],
   ],
-  css: ['reset-css'],
-  plugins: ['~/plugins/contentful', '~/plugins/globals'],
+  modules: ['@nuxtjs/style-resources'],
+  css: ['reset-css', '@/assets/styles/globals/entry.scss'],
+  plugins: [
+    '~/plugins/contentful',
+    '~/plugins/globals',
+    { src: '~/plugins/webfont', mode: 'client' },
+  ],
   generate: {
     fallback: true,
     routes() {
@@ -29,6 +34,9 @@ const config: Configuration = {
 
       return generateRoutePaths(CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN);
     },
+  },
+  styleResources: {
+    scss: ['@/assets/styles/vars/*.scss', '@/assets/styles/helpers/*.scss'],
   },
 };
 

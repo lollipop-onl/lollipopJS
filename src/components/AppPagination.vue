@@ -1,11 +1,15 @@
 <template lang="pug">
 ul
-  li(v-for="n in totalPages")
-    NuxtLink(
-      v-if="n >= page - beforeOffset && n <= page + afterOffset"
-      :to="getPaginationLink(n)"
-      :aria-current="n === page ? 'page' : false"
-    ) {{ n }}
+  li(
+    v-for="n in totalPages"
+    :aria-current="n === page ? 'page' : false"
+  )
+    template(v-if="n >= page - beforeOffset && n <= page + afterOffset")
+      span(v-if="n === page") {{ n }}
+      NuxtLink(
+        v-else
+        :to="getPaginationLink(n)"
+      ) {{ n }}
 </template>
 
 <script lang="ts">
