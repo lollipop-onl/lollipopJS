@@ -20,4 +20,11 @@ export type BlogPost = {
   title: string;
 };
 
-export type ContentfulEntry = BlogCategory | BlogTag | BlogPost;
+export type DiaryPost = {
+  title: string;
+  image: Asset;
+  body: string;
+  publishDate: string;
+};
+
+export type ContentfulEntry = BlogCategory | BlogTag | BlogPost | DiaryPost;
