@@ -1,4 +1,3 @@
-import * as contentful from 'contentful';
 import { Plugin } from '@nuxt/types';
 import ContentfulPlugin from './ContentfulPlugin';
 
