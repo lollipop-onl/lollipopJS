@@ -28,3 +28,9 @@ export type DiaryPost = {
 };
 
 export type ContentfulEntry = BlogCategory | BlogTag | BlogPost | DiaryPost;
+
+export type BlogPostArchive = {
+  year: number;
+  month: number;
+  count: number;
+}

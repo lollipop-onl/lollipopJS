@@ -22,6 +22,12 @@ const config: Configuration = {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     ],
+    script: [
+      {
+        src: 'https://kit.fontawesome.com/502adee0f5.js',
+        crossOrigin: 'anonymous',
+      },
+    ],
   },
   build: {
     transpile: ['lodash-es'],

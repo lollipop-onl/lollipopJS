@@ -1,7 +1,7 @@
 <template lang="pug">
-ol
-  li(v-for="category in categories")
-    NuxtLink(:to="$utils.url($C.PAGES.BLOG_CATEGORY, { slug: category.fields.slug })") {{ category.fields.name }}
+ol.app-sidebar-category
+  li.item(v-for="category in categories")
+    NuxtLink.link(:to="$utils.url($C.PAGES.BLOG_CATEGORY, { slug: category.fields.slug })") {{ category.fields.name }}
 </template>
 
 <script lang="ts">
@@ -16,4 +16,16 @@ export default class AppSidebarCategory extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.app-sidebar-category {
+  & > .item {
+    padding: 8px 0;
+  }
+
+  & > .item > .link {
+    font-size: 12px;
+    line-height: 1.6;
+    color: $_black;
+  }
+}
+</style>

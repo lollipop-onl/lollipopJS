@@ -7,6 +7,8 @@ export const PAGES = {
   BLOG_POST: '/post/_slug',
   /** ブログカテゴリ */
   BLOG_CATEGORY: '/category/_slug',
+  /** ブログアーカイブ */
+  BLOG_ARCHIVE: '/post/_year/_month',
   /** 日記 */
   DIARY: '/diary',
   /** 日記ポスト */

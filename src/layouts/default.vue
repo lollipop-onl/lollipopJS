@@ -1,8 +1,11 @@
 <template lang="pug">
-div
+.default-layout
   SiteHeader
-  AppSidebar
-  nuxt
+  .container
+    .main
+      nuxt
+    .sidebar
+      AppSidebar
 </template>
 
 <script lang="ts">
@@ -19,4 +22,21 @@ import SiteHeader from '@/components/SiteHeader.vue';
 export default class DefaultLayout extends Vue {}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.default-layout {
+  & > .container {
+    display: flex;
+    width: $container-width;
+    margin: 0 auto;
+  }
+
+  & > .container > .main {
+    flex-grow: 1;
+  }
+
+  & > .container > .sidebar {
+    flex-shrink: 0;
+    width: 240px;
+  }
+}
+</style>

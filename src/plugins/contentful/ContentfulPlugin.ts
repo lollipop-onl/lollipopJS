@@ -5,7 +5,14 @@ import {
   createClient,
 } from 'contentful';
 import { Context } from '@nuxt/types';
-import { BlogCategory, BlogPost, ContentfulEntry, DiaryPost } from '@/types';
+import dayjs from 'dayjs';
+import {
+  BlogCategory,
+  BlogPost,
+  BlogPostArchive,
+  ContentfulEntry,
+  DiaryPost,
+} from '@/types';
 import { ContentfulContentType } from '@/constants';
 import { Store } from '@/store';
 
@@ -44,6 +51,24 @@ class ContentfulPlugin {
     return this.getContentTypeIdEntries<BlogCategory>(
       ContentfulContentType.CATEGORY
     );
+  }
+
+  /** ブログポストの月別記事一覧を取得する */
+  public get blogPostArchives(): BlogPostArchive[] {
+    return this.allBlogPosts.reduce<BlogPostArchive[]>((archives, entry) => {
+      const date = dayjs(entry.sys.createdAt);
+      const index = archives.findIndex(
+        ({ year, month }) => year === date.year() && month === date.month()
+      );
+
+      if (index === -1) {
+        archives.push({ year: date.year(), month: date.month(), count: 1 });
+      } else {
+        archives[index].count += 1;
+      }
+
+      return archives;
+    }, []);
   }
 
   /**
@@ -103,6 +128,26 @@ class ContentfulPlugin {
     limit = this.context.app.$C.BLOG_POST_PER_PAGE
   ): Entry<BlogPost>[] {
     return this.allBlogPosts.slice(skip * limit, skip * limit + limit);
+  }
+
+  /**
+   * ブログポストの月ごとの一覧を取得する
+   * @param year
+   * @param month
+   * @param skip
+   * @param limit
+   */
+  getBlogPostArchives(
+    year: number,
+    month: number,
+    skip = 0,
+    limit = this.context.app.$C.BLOG_POST_PER_PAGE
+  ): Entry<BlogPost>[] {
+    return this.allBlogPosts.filter((entry) => {
+      const date = dayjs(entry.sys.createdAt);
+
+      return date.year() === year && date.month() === month;
+    });
   }
 
   /**
