@@ -8,7 +8,11 @@ header.site-header
       li.item
         NuxtLink.link(:to="$C.PAGES.BLOG_POSTS") ARCHIVES
       li.item
+        NuxtLink.link(:to="$C.PAGES.DIARY") WORKS
+      li.item
         NuxtLink.link(:to="$C.PAGES.DIARY") DIARY BLOG
+      li.item
+        NuxtLink.link(:to="$C.PAGES.DIARY") CONTACT
 </template>
 
 <script lang="ts">
