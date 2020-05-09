@@ -12,6 +12,7 @@ const config: Configuration = {
     CONTENTFUL_SPACE_ID,
   },
   build: {
+    transpile: ['lodash-es'],
     postcss: {
       plugins: { 'postcss-short': {} },
     },
@@ -20,7 +21,15 @@ const config: Configuration = {
     '@nuxt/typescript-build',
     ['@nuxtjs/dotenv', { path: __dirname }],
   ],
-  modules: ['@nuxtjs/style-resources'],
+  modules: [
+    '@nuxtjs/style-resources',
+    [
+      'nuxt-vitals',
+      {
+        trackingID: 'UA-158121040-2',
+      },
+    ],
+  ],
   css: ['reset-css', '@/assets/styles/globals/entry.scss'],
   plugins: [
     '~/plugins/contentful',
