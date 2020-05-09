@@ -2,7 +2,7 @@ export const PAGES = {
   /** トップページ */
   TOP: '/',
   /** ブログポストリスト */
-  BLOG_ARCHIVES: '/archives',
+  BLOG_POSTS: '/archives',
   /** ブログポスト */
   BLOG_POST: '/post/_slug',
   /** ブログカテゴリ */

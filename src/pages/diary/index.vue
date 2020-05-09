@@ -22,11 +22,11 @@ import { DiaryPost } from '@/types';
   components: {
     AppPagination,
   },
-  head(this:DiaryPage){
+  head(this: DiaryPage) {
     return {
-      title: 'Diary entries'
-    }
-  }
+      title: 'Diary entries',
+    };
+  },
 })
 export default class DiaryPage extends Vue {
   /** 表示中のページ番号 */

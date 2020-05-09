@@ -3,7 +3,7 @@ div
   ol
     li(v-for="post in latestBlogPosts")
       NuxtLink(:to="$utils.url($C.PAGES.BLOG_POST, { slug: post.fields.slug })") {{ post.fields.title }}
-  NuxtLink(:to="$C.PAGES.BLOG_ARCHIVES") すべてのポストをみる
+  NuxtLink(:to="$C.PAGES.BLOG_POSTS") すべてのポストをみる
 </template>
 
 <script lang="ts">

@@ -8,7 +8,7 @@
           NuxtLink(:to="$utils.url($C.PAGES.BLOG_CATEGORY, { slug: post.fields.category.fields.slug })") {{ post.fields.category.fields.name }}
         p {{ $store.state.count }}
     AppPagination(
-      :to="$C.PAGES.BLOG_ARCHIVES"
+      :to="$C.PAGES.BLOG_POSTS"
       :total="$contentful.allBlogPosts.length"
       :perPage="$C.BLOG_POST_PER_PAGE"
       :page="page"
