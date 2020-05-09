@@ -52,6 +52,9 @@ const config: Configuration = {
     '~/plugins/globals',
     { src: '~/plugins/webfont', mode: 'client' },
   ],
+  router: {
+    linkExactActiveClass: '-current',
+  },
   generate: {
     fallback: true,
     routes() {

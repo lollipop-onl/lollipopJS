@@ -4,7 +4,7 @@ import WebFont from 'webfontloader';
 const plugin: Plugin = () => {
   WebFont.load({
     google: {
-      families: ['M+PLUS+Rounded+1c:wght@300;700', 'Quicksand:wght@500;700'],
+      families: ['M+PLUS+Rounded+1c:wght@300;700', 'Quicksand:wght@400;700'],
     },
   });
 };

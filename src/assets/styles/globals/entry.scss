@@ -3,6 +3,7 @@ input,
 textarea,
 button {
   font-family: $font-family-primary;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
