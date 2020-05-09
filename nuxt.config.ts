@@ -3,7 +3,12 @@ import generateRoutePaths from './src/utils/generateRoutePaths';
 
 require('dotenv').config();
 
-const { CONTENTFUL_SPACE_ID = '', CONTENTFUL_ACCESS_TOKEN = '' } = process.env;
+const {
+  NODE_ENV = 'development',
+  CONTENTFUL_SPACE_ID = '',
+  CONTENTFUL_ACCESS_TOKEN = '',
+  GA_TRACKING_ID = 'UA-158121040-2',
+} = process.env;
 
 const config: Configuration = {
   srcDir: 'src',
@@ -19,6 +24,10 @@ const config: Configuration = {
   },
   buildModules: [
     '@nuxt/typescript-build',
+    [
+      '@nuxtjs/google-analytics',
+      { id: GA_TRACKING_ID, debug: { sendHitTask: NODE_ENV === 'production' } },
+    ],
     ['@nuxtjs/dotenv', { path: __dirname }],
   ],
   modules: [
@@ -26,7 +35,7 @@ const config: Configuration = {
     [
       'nuxt-vitals',
       {
-        trackingID: 'UA-158121040-2',
+        trackingID: GA_TRACKING_ID,
       },
     ],
   ],

@@ -4,18 +4,15 @@ aside.app-sidebar
     .title カテゴリ
     AppSidebarCategory(:categories="$contentful.allCategories")
     .title アーカイブ
-    AppSidebarArchive
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import AppSidebarCategory from '@/components/AppSidebarCategory.vue';
-import AppSidebarArchive from '@/components/AppSidebarArchive.vue';
 
 @Component({
   components: {
     AppSidebarCategory,
-    AppSidebarArchive,
   },
 })
 export default class AppSidebar extends Vue {}
