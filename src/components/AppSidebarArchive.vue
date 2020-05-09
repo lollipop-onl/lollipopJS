@@ -20,7 +20,7 @@ export default class AppSidebarArchive extends Vue {}
   }
 
   & > .item > .link {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.6;
     color: $_black;
   }
