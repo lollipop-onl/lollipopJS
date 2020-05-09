@@ -16,6 +16,11 @@ import { BlogPost } from '@/types';
   components: {
     AppMarkdown,
   },
+  head(this: PostDetailPage) {
+    return {
+      title: this.blogPost.fields.title,
+    };
+  },
 })
 export default class PostDetailPage extends Vue {
   /** ブログポスト */

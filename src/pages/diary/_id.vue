@@ -14,6 +14,11 @@ import { DiaryPost } from '@/types';
   components: {
     AppMarkdown,
   },
+  head(this: DiaryPostPage) {
+    return {
+      title: this.diaryPost?.fields.title,
+    };
+  },
 })
 export default class DiaryPostPage extends Vue {
   /** 日記のID */

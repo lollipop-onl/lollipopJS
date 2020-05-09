@@ -16,6 +16,13 @@ const config: Configuration = {
     CONTENTFUL_ACCESS_TOKEN,
     CONTENTFUL_SPACE_ID,
   },
+  head: {
+    titleTemplate: '%s - lollipopJS',
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    ],
+  },
   build: {
     transpile: ['lodash-es'],
     postcss: {

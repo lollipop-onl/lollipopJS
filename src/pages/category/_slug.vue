@@ -27,6 +27,11 @@ import { BlogCategory, BlogPost } from '@/types';
   components: {
     AppPagination,
   },
+  head(this: CategoryPage) {
+    return {
+      title: this.category?.fields.name,
+    };
+  },
 })
 export default class CategoryPage extends Vue {
   /** 表示中のページ番号 */

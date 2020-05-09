@@ -11,7 +11,14 @@ import { Component, Vue } from 'nuxt-property-decorator';
 import { Entry } from 'contentful';
 import { BlogPost } from '@/types';
 
-@Component
+@Component({
+  head(this: IndexPage) {
+    return {
+      title: 'lollipopJS - FrontEnd Diary of lollipop.onl',
+      titleTemplate: '%s',
+    };
+  },
+})
 export default class IndexPage extends Vue {
   /** 最新のブログポスト一覧 */
   get latestBlogPosts(): Entry<BlogPost>[] {
