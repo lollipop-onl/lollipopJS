@@ -52,7 +52,7 @@ export default class BlogArchivePage extends Vue {
       this.year,
       this.month,
       0,
-      Infinity
+      9999
     );
   }
 

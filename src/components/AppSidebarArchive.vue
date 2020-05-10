@@ -24,5 +24,10 @@ export default class AppSidebarArchive extends Vue {}
     line-height: 1.6;
     color: $_black;
   }
+
+  & > .item > .link.-current,
+  & > .item > .link:hover {
+    text-decoration: underline;
+  }
 }
 </style>

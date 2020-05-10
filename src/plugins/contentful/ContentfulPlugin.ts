@@ -143,11 +143,13 @@ class ContentfulPlugin {
     skip = 0,
     limit = this.context.app.$C.BLOG_POST_PER_PAGE
   ): Entry<BlogPost>[] {
-    return this.allBlogPosts.filter((entry) => {
-      const date = dayjs(entry.sys.createdAt);
+    return this.allBlogPosts
+      .filter((entry) => {
+        const date = dayjs(entry.sys.createdAt);
 
-      return date.year() === year && date.month() === month;
-    });
+        return date.year() === year && date.month() === month;
+      })
+      .slice(skip * limit, skip * limit + limit);
   }
 
   /**
