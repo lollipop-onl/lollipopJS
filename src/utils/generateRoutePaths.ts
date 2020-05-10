@@ -1,4 +1,5 @@
 import { createClient, Entry } from 'contentful';
+import dayjs from 'dayjs';
 import { ContentfulContentType, PAGES } from '../constants';
 import { BlogCategory, BlogPost, ContentfulEntry, DiaryPost } from '../types';
 import { url } from './url';
@@ -40,6 +41,16 @@ const getDynamicRoutePaths = async (
   return items.reduce<string[]>((routes, entry) => {
     if (isBlogPostEntry(entry)) {
       routes.push(url(PAGES.BLOG_POST, { slug: entry.fields.slug }));
+
+      const date = dayjs(entry.sys.createdAt);
+      const path = url(PAGES.BLOG_ARCHIVE, {
+        year: date.year(),
+        month: date.month() + 1,
+      });
+
+      if (!routes.includes(path)) {
+        routes.push(path);
+      }
     }
 
     if (isCategoryEntry(entry)) {
