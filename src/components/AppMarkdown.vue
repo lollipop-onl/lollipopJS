@@ -1,5 +1,5 @@
 <template lang="pug">
-div(v-html="html")
+.app-markdown(v-html="html")
 </template>
 
 <script lang="ts">
@@ -18,4 +18,11 @@ export default class AppMarkdown extends Vue {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.app-markdown {
+  & ::v-deep img {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+</style>

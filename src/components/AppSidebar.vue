@@ -1,11 +1,6 @@
 <template lang="pug">
 aside.app-sidebar
   .section
-    script(
-      type="text/javascript"
-      src="//rot7.a8.net/jsa/ffa30f7958e502c06bd86c78256cbac5/dc5c7986daef50c1e02ab09b442ee34f.js"
-    )
-  .section
     .title CATEGORY
     AppSidebarCategory(:categories="$contentful.allCategories")
   .section

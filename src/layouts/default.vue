@@ -32,11 +32,13 @@ export default class DefaultLayout extends Vue {}
 
   & > .container > .main {
     flex-grow: 1;
+    width: 100%;
   }
 
   & > .container > .sidebar {
     flex-shrink: 0;
     width: 240px;
+    margin-left: 32px;
   }
 }
 </style>
