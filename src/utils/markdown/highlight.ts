@@ -26,18 +26,17 @@ const highlight: PluginSimple = (md) => {
       source = hljs.highlight(language, str).value;
     }
 
-    if (displayName) {
-      const isConsole = ['Shell Session', 'Bash'].includes(displayName);
-      const iconName = isFileName
-        ? 'fa-file-code'
-        : isConsole
-        ? 'fa-terminal'
-        : 'fa-code';
+    const isPlainText = displayName === 'Plain Text';
+    const isConsole = ['Shell Session', 'Bash'].includes(displayName);
+    const iconName = isFileName
+      ? 'fa-file-code'
+      : isConsole
+      ? 'fa-terminal'
+      : isPlainText
+      ? 'fa-pen-nib'
+      : 'fa-code';
 
-      source = `<span class="code-block-header"><span class="name"><span class="fas ${iconName} icon"></span>${displayName}</span><button class="copy"><span class="fas fa-copy"></span></button></span><span class="hljs">${source}</span>`;
-    }
-
-    return source;
+    return `<span class="code-block-header"><span class="name"><span class="fas ${iconName} icon"></span>${displayName}</span><button class="copy"><span class="fas fa-copy"></span></button></span><span class="hljs">${source}</span>`;
   };
 
   md.renderer.rules.fence = wrap(md.renderer.rules.fence);

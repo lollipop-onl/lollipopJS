@@ -30,9 +30,6 @@ export default class AppSidebar extends Vue {
 
 <style lang="scss" scoped>
 .app-sidebar {
-  & {
-  }
-
   & > .section {
     margin-bottom: 24px;
   }

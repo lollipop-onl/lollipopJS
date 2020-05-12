@@ -23,6 +23,8 @@ export default class DefaultLayout extends Vue {}
 </script>
 
 <style lang="scss" scoped>
+$sidebar-margin: 32px;
+
 .default-layout {
   & > .container {
     display: flex;
@@ -32,13 +34,13 @@ export default class DefaultLayout extends Vue {}
 
   & > .container > .main {
     flex-grow: 1;
-    width: 100%;
+    width: calc(100% - #{$sidebar-width} - #{$sidebar-margin});
   }
 
   & > .container > .sidebar {
     flex-shrink: 0;
-    width: 240px;
-    margin-left: 32px;
+    width: $sidebar-width;
+    margin-left: $sidebar-margin;
   }
 }
 </style>

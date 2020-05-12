@@ -22,6 +22,11 @@ export default class AppMarkdown extends Vue {
 /* stylelint-disable rscss/class-format, rscss/no-descendant-combinator */
 .app-markdown {
   ::v-deep {
+    p {
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
     img {
       max-width: 100%;
       margin: 0 auto;
@@ -29,12 +34,14 @@ export default class AppMarkdown extends Vue {
 
     .code-block {
       display: block;
-      border-top: 2px solid $_primary;
+      margin: 32px 0;
+      border-top: 2px solid #555;
     }
 
     .code-block-header {
       & {
         display: flex;
+        margin-bottom: 8px;
       }
 
       & > .name {
@@ -47,7 +54,7 @@ export default class AppMarkdown extends Vue {
         font-size: 14px;
         font-weight: bold;
         color: #fff;
-        background: $_primary;
+        background: #555;
       }
 
       & > .name > .icon {
@@ -64,7 +71,7 @@ export default class AppMarkdown extends Vue {
         margin-left: auto;
         font-size: 18px;
         line-height: 42px;
-        color: #888;
+        color: #999;
         text-align: center;
         cursor: pointer;
         background: transparent;
@@ -85,9 +92,9 @@ export default class AppMarkdown extends Vue {
         font-size: 12px;
         font-weight: bold;
         color: #888;
-        opacity: 0;
-        content: 'Code copied!';
         visibility: hidden;
+        content: 'Code copied!';
+        opacity: 0;
         transition: transform 0.12s ease, opacity 0.12s ease, visibility 0s 0.12s;
         transform: translate3d(8px, -50%, 0);
       }
@@ -95,18 +102,18 @@ export default class AppMarkdown extends Vue {
       & > .copy.-copied::before {
         visibility: visible;
         opacity: 1;
-        transform: translate3d(0, -50%, 0);
         transition: transform 0.12s ease, opacity 0.12s ease, visibility 0s ease;
+        transform: translate3d(0, -50%, 0);
       }
     }
 
     // highlight.js theme
     .hljs {
       display: block;
-      padding: 0.5em;
+      padding: 8px 50px 16px;
       overflow-x: scroll;
       font-size: 16px;
-      line-height: 1.5;
+      line-height: 1.4;
       color: #4d4d4d;
       background: #fff;
     }

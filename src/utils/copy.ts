@@ -4,8 +4,12 @@
  */
 export const copy = (text: string | number): boolean => {
   try {
+    // コピー実行時のフォーカスのあたっている要素
+    const { activeElement } = document;
     // コピー用のテキストエリアを生成する
-    let textarea: HTMLTextAreaElement | null = document.createElement('textarea');
+    let textarea: HTMLTextAreaElement | null = document.createElement(
+      'textarea'
+    );
     // テキストエリアの中身にコピーするテキストを設定する
     textarea.textContent = `${text}`;
     // body要素の最後にテキストエリアを追加する
@@ -18,6 +22,11 @@ export const copy = (text: string | number): boolean => {
     document.body.removeChild(textarea);
     // テキストエリアの変数を開放する
     textarea = null;
+
+    if (activeElement) {
+      // @ts-ignore
+      activeElement.focus();
+    }
 
     return true;
   } catch (err) {

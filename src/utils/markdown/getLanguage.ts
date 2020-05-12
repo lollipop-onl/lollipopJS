@@ -2,7 +2,7 @@ import hljs from 'highlight.js';
 
 type Language = {
   language?: string;
-  displayName?: string;
+  displayName: string;
   isFileName?: boolean;
 };
 
@@ -43,7 +43,7 @@ const parseLanguage = (src: string): Language => {
     return { language: src, displayName: lang.name };
   }
 
-  return {};
+  return { displayName: 'Plain Text' };
 };
 
 export default parseLanguage;
