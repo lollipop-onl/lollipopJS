@@ -3,7 +3,6 @@ import { RenderRule } from 'markdown-it/lib/renderer';
 import hljs from 'highlight.js';
 import parseLanguage from '@/utils/markdown/getLanguage';
 import listenCopyButtonClick from '@/utils/markdown/listenCopyButtonClick';
-import { copy } from '@/utils/copy';
 
 const wrap = (render?: RenderRule): RenderRule | undefined => {
   if (!render) {
@@ -22,8 +21,6 @@ const highlight: PluginSimple = (md) => {
   md.options.highlight = (str, lang) => {
     const { language, displayName, isFileName } = parseLanguage(lang);
     let source = md.utils.escapeHtml(str);
-
-    codeBlockIndex++;
 
     if (language) {
       source = hljs.highlight(language, str).value;
