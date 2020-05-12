@@ -52,7 +52,10 @@ const config: Configuration = {
       },
     ],
   ],
-  css: ['reset-css', '@/assets/styles/globals/entry.scss'],
+  css: [
+    'reset-css',
+    '@/assets/styles/globals/entry.scss',
+  ],
   plugins: [
     '~/plugins/contentful',
     '~/plugins/globals',
