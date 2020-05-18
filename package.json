@@ -1,0 +1,13 @@
+{
+  "name": "lollipopJS",
+  "version": "0.0.1",
+  "repository": "https://github.com/lollipop-onl/lollipopJS.git",
+  "author": "lollipop-onl <lollipop@simochee.net>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "next": "^9.4.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
