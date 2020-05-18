@@ -23,8 +23,26 @@ export default class AppMarkdown extends Vue {
 .app-markdown {
   ::v-deep {
     p {
-      margin-bottom: 16px;
+      margin: 0 32px 16px;
       line-height: 1.5;
+    }
+
+    h1 {
+      position: relative;
+      padding-left: 16px;
+      margin: 0 32px 24px;
+      font-size: 24px;
+    }
+
+    h1::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 24px;
+      border-radius: 2px;
+      background: $_primary;
+      content: '';
     }
 
     img {
@@ -95,7 +113,8 @@ export default class AppMarkdown extends Vue {
         visibility: hidden;
         content: 'Code copied!';
         opacity: 0;
-        transition: transform 0.12s ease, opacity 0.12s ease, visibility 0s 0.12s;
+        transition: transform 0.12s ease, opacity 0.12s ease,
+          visibility 0s 0.12s;
         transform: translate3d(8px, -50%, 0);
       }
 
