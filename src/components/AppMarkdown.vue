@@ -40,9 +40,9 @@ export default class AppMarkdown extends Vue {
       left: 0;
       width: 4px;
       height: 24px;
-      border-radius: 2px;
-      background: $_primary;
       content: '';
+      background: $_primary;
+      border-radius: 2px;
     }
 
     img {
@@ -113,7 +113,9 @@ export default class AppMarkdown extends Vue {
         visibility: hidden;
         content: 'Code copied!';
         opacity: 0;
-        transition: transform 0.12s ease, opacity 0.12s ease,
+        transition:
+          transform 0.12s ease,
+          opacity 0.12s ease,
           visibility 0s 0.12s;
         transform: translate3d(8px, -50%, 0);
       }

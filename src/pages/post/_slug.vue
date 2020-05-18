@@ -91,8 +91,8 @@ export default class PostDetailPage extends Vue {
 
   & > .thumbnail::before {
     display: block;
-    content: '';
     padding-top: 56.25%;
+    content: '';
   }
 
   & > .thumbnail > .image {
