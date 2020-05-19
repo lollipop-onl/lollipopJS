@@ -1,5 +1,6 @@
 // Global styles
 @import '~reboot.css';
+@import '../styles/resources';
 
 // Variables
 :root {
@@ -12,4 +13,12 @@
 
   // Defined colors
   --site-header-background-color: var(--foundation-color);
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: $font-family-primary;
+  -webkit-font-smoothing: antialiased;
 }

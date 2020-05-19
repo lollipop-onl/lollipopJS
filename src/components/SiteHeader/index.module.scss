@@ -11,5 +11,19 @@ $site-header-height: 80px;
 
   & > .container {
     @include container-fluid;
+
+    display: flex;
+    align-items: center;
+  }
+}
+
+.siteHeaderLogo {
+  & {
+    color: var(--var);
+  }
+
+  & > .logo {
+    font-family: $font-family-accent;
+    font-weight: bold;
   }
 }
