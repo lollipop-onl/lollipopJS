@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -14,8 +14,9 @@ type Props = {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const blogEntries = await contentful.client.getEntries<EntryCollection<BlogPost>>({});
-  const entries = contentful.filterEntries<BlogPost>(ContentfulContentType.BLOG_POST, blogEntries);
+  const { items: entries } = await contentful.client.getEntries<BlogPost>({
+    content_type: ContentfulContentType.BLOG_POST,
+  });
 
   return {
     props: {
@@ -24,7 +25,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-const IndexPage: React.FC<Props> = ({ entries }) => (
+const IndexPage: FC<Props> = ({ entries }) => (
   <SiteLayout>
     <Head>
       <title>lollipopJS</title>
@@ -32,12 +33,13 @@ const IndexPage: React.FC<Props> = ({ entries }) => (
     <div className={styles.indexPage}>
       <ol className={styles.entryList}>
         {entries.map((entry) => {
-          const { slug, title, category } = entry.fields;
-          const postLink = url(PAGES.BLOG_POST, { slug });
-          const categoryLink = url(PAGES.CATEGORY_POSTS, { slug: category.fields.slug, page: 1 });
+          const { id } = entry.sys;
+          const { title, category } = entry.fields;
+          const postLink = url(PAGES.BLOG_POST, { id });
+          const categoryLink = url(PAGES.CATEGORY_POSTS, { id: category.sys.id, page: 1 });
 
           return (
-            <li key={entry.sys.id} className={styles.item}>
+            <li key={id} className={styles.item}>
               <div className={styles.date}>{entry.sys.createdAt}</div>
               <Link href={categoryLink}>
                 <a className={styles.category}>{category.fields.name}</a>

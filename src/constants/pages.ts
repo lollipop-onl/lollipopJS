@@ -1,6 +1,6 @@
 /** Page urls */
 export const PAGES = {
   TOP: '/',
-  BLOG_POST: '/post/:slug',
-  CATEGORY_POSTS: '/category/:slug/:page',
+  BLOG_POST: '/post/:id',
+  CATEGORY_POSTS: '/category/:id/:page',
 };
