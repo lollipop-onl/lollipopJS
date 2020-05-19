@@ -4,7 +4,6 @@
   & > .title {
     @include container-fluid;
 
-
     @include mq($pc) {
       display: flex;
       justify-content: center;
