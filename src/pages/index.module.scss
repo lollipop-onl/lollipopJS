@@ -1,6 +1,9 @@
 @import '../styles/resources';
 
 .indexPage {
+  & {
+    padding-top: $margin-xlg;
+  }
 }
 
 .entryList {
@@ -11,6 +14,26 @@
   }
 
   & > .item {
-    margin-bottom: $margin-md;
+    display: grid;
+    grid-template:
+      'date   category  .'
+      'title  title     title' /
+      auto    auto      1fr;
+    margin-bottom: $margin-lg;
+  }
+
+  & > .item > .date {
+    grid-area: date;
+    font-family: $font-family-accent;
+  }
+
+  & > .item > .category {
+    grid-area: category;
+    margin-left: $margin-sm;
+  }
+
+  & > .item > .title {
+    grid-area: title;
+    margin-top: $margin-xsm;
   }
 }

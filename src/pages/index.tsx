@@ -38,12 +38,12 @@ const IndexPage: React.FC<Props> = ({ entries }) => (
 
           return (
             <li key={entry.sys.id} className={styles.item}>
-              <div className="date">{entry.sys.createdAt}</div>
+              <div className={styles.date}>{entry.sys.createdAt}</div>
               <Link href={categoryLink}>
-                <a className="category">{category.fields.name}</a>
+                <a className={styles.category}>{category.fields.name}</a>
               </Link>
               <Link href={postLink}>
-                <a className="title">{title}</a>
+                <a className={styles.title}>{title}</a>
               </Link>
             </li>
           );
