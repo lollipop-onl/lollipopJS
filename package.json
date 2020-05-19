@@ -15,8 +15,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "reboot.css": "^1.0.4",
-    "throttle-debounce": "^2.1.0",
-    "webfontloader": "^1.6.28"
+    "throttle-debounce": "^2.1.0"
   },
   "devDependencies": {
     "@types/fontfaceobserver": "^0.0.6",
