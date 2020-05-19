@@ -1,11 +1,15 @@
 // Global styles
 @import '~reboot.css';
 
-// Define Variables
+// Variables
 :root {
-  --color: #f00;
+  // Color palette
+  --foundation-color: #fff;
 
   @media (prefers-color-scheme: dark) {
-    --color: #00f;
+    --foundation-color: #000;
   }
+
+  // Defined colors
+  --site-header-background-color: var(--foundation-color);
 }

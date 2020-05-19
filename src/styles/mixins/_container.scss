@@ -1,0 +1,22 @@
+@import '../vars';
+@import 'media';
+
+@mixin container-fluid {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: $container-max-width;
+  padding-right: $margin-md;
+  padding-left: $margin-md;
+  margin: 0 auto;
+}
+
+@mixin container {
+  @include mq($sp) {
+    @include container-fluid;
+  }
+
+  @include mq($pc) {
+    width: $container-width;
+    margin: 0 auto;
+  }
+}

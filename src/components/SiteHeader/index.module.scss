@@ -1,0 +1,14 @@
+@import '../../styles/resources';
+
+$site-header-height: 125px;
+
+.siteHeader {
+  & {
+    width: 100%;
+    height: var(--site-header-background-color);
+  }
+
+  & > .container {
+    @include container-fluid;
+  }
+}

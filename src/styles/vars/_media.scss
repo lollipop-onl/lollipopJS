@@ -1,0 +1,6 @@
+// Breakpoint of Mobile and PC
+$breakpoint: 800px;
+
+// Media query selectors
+$sp: unquote('max-width: #{$breakpoint - 1px}');
+$pc: unquote('min-width: #{$breakpoint}');
