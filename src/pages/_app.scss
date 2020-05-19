@@ -5,14 +5,19 @@
 // Variables
 :root {
   // Color palette
-  --foundation-color: #fff;
+  --foundation-primary: #fff;
+  --foundation-secondary: #fff;
+  --text-primary: #191919;
+  --text-secondary: #444;
+  --text-link: #f00;
 
   @media (prefers-color-scheme: dark) {
-    --foundation-color: #000;
+    --foundation-primary: #000;
+    --foundation-secondary: #222;
+    --text-primary: #fff;
+    --text-secondary: #ccc;
+    --text-link: #f00;
   }
-
-  // Defined colors
-  --site-header-background-color: var(--foundation-color);
 }
 
 body,

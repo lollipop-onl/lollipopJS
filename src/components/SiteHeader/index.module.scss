@@ -6,7 +6,7 @@ $site-header-height: 80px;
   & {
     width: 100%;
     height: $site-header-height;
-    background: var(--site-header-background-color);
+    background: var(--foundation-primary);
   }
 
   & > .container {
@@ -14,6 +14,19 @@ $site-header-height: 80px;
 
     display: flex;
     align-items: center;
+    height: $site-header-height;
+
+    @include mq($sp) {
+      justify-content: center;
+    }
+  }
+
+  & > .container > .menu {
+    margin-left: auto;
+
+    @include mq($sp) {
+      display: none;
+    }
   }
 }
 
@@ -24,6 +37,33 @@ $site-header-height: 80px;
 
   & > .logo {
     font-family: $font-family-accent;
+    font-size: 24px;
     font-weight: bold;
+    color: var(--text-primary);
+    text-indent: 0.3em;
+    letter-spacing: 0.3em;
+
+    @include mq($sp) {
+      font-size: 20px;
+    }
+  }
+}
+
+.siteHeaderMenu {
+  & {
+    display: flex;
+    margin: 0;
+    list-style: none;
+  }
+
+  & > .item {
+    margin-right: $margin-md;
+  }
+
+  & > .item > .link {
+    font-family: $font-family-accent;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-secondary);
   }
 }
