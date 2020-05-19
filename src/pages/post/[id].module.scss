@@ -1,0 +1,7 @@
+@import '../../styles/resources';
+
+.postPage {
+  & > .body {
+    @include container;
+  }
+}

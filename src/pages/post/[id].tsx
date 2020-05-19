@@ -4,10 +4,11 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Entry } from 'contentful';
 import SiteLayout from '~/components/SiteLayout';
+import AppMarkdown from '~/components/AppMarkdown';
 import { ContentfulContentType, SITE_TITLE } from '~/constants';
 import { BlogPost } from '~/types';
 import { contentful, getTitle } from '~/utils';
-import styles from './[id].scss';
+import styles from './[id].module.scss';
 
 type Props = {
   entry: Entry<BlogPost>
@@ -36,14 +37,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const PostPage: FC<Props> = ({ entry }) => {
-  const { title } = entry.fields;
+  const { title, body } = entry.fields;
 
   return (
     <SiteLayout>
       <Head>
         <title>{getTitle(title)}</title>
       </Head>
-      <h1>{title}</h1>
+      <div className={styles.postPage}>
+        <h1>{title}</h1>
+        <AppMarkdown className={styles.body} source={body} />
+      </div>
     </SiteLayout>
   );
 };
