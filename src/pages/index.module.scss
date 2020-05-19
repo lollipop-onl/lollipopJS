@@ -1,0 +1,17 @@
+.indexPage {
+  color: red;
+
+  & > .foo > message {
+    font-style: italic;
+  }
+
+  & > .foo > .message.Variant {
+    font-weight: bold;
+  }
+}
+
+.foo {
+  .message {
+    color: green;
+  }
+}
