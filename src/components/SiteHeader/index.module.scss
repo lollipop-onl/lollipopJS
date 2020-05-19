@@ -1,11 +1,12 @@
 @import '../../styles/resources';
 
-$site-header-height: 125px;
+$site-header-height: 80px;
 
 .siteHeader {
   & {
     width: 100%;
-    height: var(--site-header-background-color);
+    height: $site-header-height;
+    background: var(--site-header-background-color);
   }
 
   & > .container {
