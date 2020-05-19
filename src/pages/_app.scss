@@ -1,0 +1,11 @@
+// Global styles
+@import '~reboot.css';
+
+// Define Variables
+:root {
+  --color: #f00;
+
+  @media (prefers-color-scheme: dark) {
+    --color: #00f;
+  }
+}
