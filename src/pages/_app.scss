@@ -5,8 +5,8 @@
 // Variables
 :root {
   // Color palette
-  --primary: #FFC52C;
-  --secondary: #FFE34D;
+  --primary: #ffc52c;
+  --secondary: #ffe34d;
   --accent: #00f;
   --foundation-primary: #fff;
   --foundation-secondary: #fff;
@@ -16,10 +16,10 @@
 
   @media (prefers-color-scheme: dark) {
     --foundation-primary: #161118;
-    --foundation-secondary: #221D23;
+    --foundation-secondary: #221d23;
     --text-primary: #fff;
     --text-secondary: rgb(255, 255, 255, 0.8);
-    --secondary: #EBB128;
+    --secondary: #ebb128;
     --accent: #00f;
   }
 }
