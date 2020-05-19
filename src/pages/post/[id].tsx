@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Entry } from 'contentful';
 import SiteLayout from '~/components/SiteLayout';
 import AppMarkdown from '~/components/AppMarkdown';
-import { ContentfulContentType, SITE_TITLE } from '~/constants';
+import { ContentfulContentType } from '~/constants';
 import { BlogPost } from '~/types';
 import { contentful, getTitle } from '~/utils';
 import styles from './[id].module.scss';

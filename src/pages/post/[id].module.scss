@@ -1,8 +1,15 @@
 @import '../../styles/resources';
 
 .postPage {
+  & {
+    padding-top: $margin-xlg;
+  }
+
   & > .title {
     @include container-fluid;
+
+    margin-bottom: $margin-xlg;
+    line-height: 1.5;
 
     @include mq($pc) {
       display: flex;
@@ -20,5 +27,7 @@
 
   & > .body {
     @include container;
+
+    line-height: 1.8;
   }
 }

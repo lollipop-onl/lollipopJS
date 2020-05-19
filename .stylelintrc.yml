@@ -8,6 +8,9 @@ rules:
   string-quotes: single
   no-empty-source: null
   no-duplicate-selectors: null
+  selector-pseudo-class-no-unknown:
+    - true
+    - ignorePseudoClasses: [global]
   selector-pseudo-element-no-unknown: null
   at-rule-no-unknown: null
   scss/at-rule-no-unknown: true

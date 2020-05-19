@@ -5,20 +5,21 @@
 // Variables
 :root {
   // Color palette
-  --primary: #FFC52C;
+  --primary: #008BF8;
   --secondary: #FFE34D;
   --accent: #00f;
-  --foundation-primary: #fff;
-  --foundation-secondary: #fff;
-  --text-primary: #191919;
+  --foundation-primary: #FFF8F0;
+  --foundation-secondary: #BABFD1;
+  --text-primary: #080708;
   --text-secondary: rgb(25, 25, 25, 0.8);
   --text-link: var(--primary);
 
   @media (prefers-color-scheme: dark) {
-    --foundation-primary: #161118;
-    --foundation-secondary: #221D23;
-    --text-primary: #fff;
+    --foundation-primary: #221D23;
+    --foundation-secondary: #2D3047;
+    --text-primary: #E8E9ED;
     --text-secondary: rgb(255, 255, 255, 0.8);
+    --primary: #FFC52C;
     --secondary: #EBB128;
     --accent: #00f;
   }
@@ -34,7 +35,7 @@ textarea {
 
 body {
   color: var(--text-primary);
-  background: var(--foundation-secondary);
+  background: var(--foundation-primary);
 }
 
 a {

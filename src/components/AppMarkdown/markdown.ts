@@ -3,7 +3,9 @@ import markdownIt from 'markdown-it';
 import externalLinks from 'markdown-it-external-links';
 import highlight from './highlight';
 
-const md = markdownIt();
+const md = markdownIt({
+  breaks: true,
+});
 
 // 外部リンクのプラグインを登録する
 md.use(externalLinks, {

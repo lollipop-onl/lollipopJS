@@ -11,8 +11,8 @@ const wrap = (render?: RenderRule): RenderRule | undefined => {
   return function (this: any, ...args) {
     return render
       .apply(this, args)
-      .replace(/<code +class="/g, '<code class="code-block ')
-      .replace(/<code>/g, '<code class="code-block">');
+      .replace(/<pre +class="/g, '<pre class="codeBlock ')
+      .replace(/<pre>/g, '<pre class="codeBlock">');
   };
 };
 
@@ -35,7 +35,7 @@ const highlight: PluginSimple = (md) => {
           ? 'fa-pen-nib'
           : 'fa-code';
 
-    return `<span class="code-block-header"><span class="name"><span class="fas ${iconName} icon"></span>${displayName}</span><button class="copy"><span class="fas fa-copy"></span></button></span><span class="hljs">${source}</span>`;
+    return `<span class="codeBlockHeader"><span class="name"><span class="fas ${iconName} icon"></span>${displayName}</span></span><span class="hljs">${source}</span>`;
   };
 
   md.renderer.rules.fence = wrap(md.renderer.rules.fence);

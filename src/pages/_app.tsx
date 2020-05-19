@@ -25,9 +25,10 @@ const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
-        <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,500;1,300;1,500&family=Noto+Sans+JP:wght@300;700&family=Quicksand:wght@400;700&display=swap" />
+        <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;1,400&family=Noto+Sans+JP:wght@300;700&family=Quicksand:wght@400;700&display=swap" />
       </Head>
       <Component {...pageProps} />
+      <script src="https://kit.fontawesome.com/502adee0f5.js" crossOrigin="anonymous" />
     </>
   );
 };
