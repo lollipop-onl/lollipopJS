@@ -1,6 +1,24 @@
 @import '../../styles/resources';
 
 .postPage {
+  & > .title {
+    @include container-fluid;
+
+
+    @include mq($pc) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  & > .title > .inner {
+    display: block;
+
+    @include mq($pc) {
+      min-width: $container-width;
+    }
+  }
+
   & > .body {
     @include container;
   }

@@ -1,7 +1,15 @@
+/* stylelint-disable rscss/no-descendant-combinator */
 @import '../../styles/resources';
 
 .appMarkdown {
-  & {
+  img {
+    display: block;
+    max-width: 100%;
 
+    @include mq($sp) {
+      width: calc(100% + #{$margin-md * 2});
+      max-width: none;
+      margin-left: -$margin-md;
+    }
   }
 }

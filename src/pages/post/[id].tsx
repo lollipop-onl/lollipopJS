@@ -45,7 +45,9 @@ const PostPage: FC<Props> = ({ entry }) => {
         <title>{getTitle(title)}</title>
       </Head>
       <div className={styles.postPage}>
-        <h1>{title}</h1>
+        <h1 className={styles.title}>
+          <span className={styles.inner}>{title}</span>
+        </h1>
         <AppMarkdown className={styles.body} source={body} />
       </div>
     </SiteLayout>
