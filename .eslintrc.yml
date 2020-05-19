@@ -3,3 +3,10 @@ extends:
   - airbnb/hooks
 parserOptions:
   project: ./tsconfig.json
+rules:
+  '@typescript-eslint/type-annotation-spacing':
+    - error
+    - before: false
+      after: true
+  react/react-in-jsx-scope: 'off'
+  react/jsx-props-no-spreading: 'off'
