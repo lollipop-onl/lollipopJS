@@ -32,7 +32,7 @@
   "repository": "https://github.com/lollipop-onl/lollipopJS.git",
   "scripts": {
     "dev": "next dev",
-    "lint:js": "eslint --ext js,ts,tsx .",
+    "lint:js": "eslint --ext ts,tsx .",
     "lint:css": "stylelint \"src/**/*.scss\""
   }
 }
