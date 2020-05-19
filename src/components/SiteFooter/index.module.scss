@@ -1,0 +1,30 @@
+@import '../../styles/resources';
+
+.siteFooter {
+  & {
+    width: 100%;
+    background: var(--foundation-primary);
+  }
+
+  & > .container {
+    @include container;
+
+    display: flex;
+    align-items: flex-end;
+    padding: $margin-lg 0 $margin-md;
+  }
+
+  & > .container > .copyright {
+    margin-right: auto;
+    font-family: $font-family-accent;
+    font-weight: bold;
+    color: var(--text-secondary);
+  }
+
+  & > .container > .link {
+    display: inline-block;
+    margin-right: $margin-sm;
+    font-family: $font-family-accent;
+    color: var(--text-secondary);
+  }
+}

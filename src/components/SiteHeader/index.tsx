@@ -2,13 +2,12 @@ import { FC } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
 import { SITE_TITLE, PAGES } from '~/constants';
-import { url } from '~/utils';
 import styles from './index.module.scss';
 
 type Props = {};
 
 const SiteHeader: FC<Props> = () => (
-  <div className={styles.siteHeader}>
+  <header className={styles.siteHeader}>
     <div className={styles.container}>
       <Link href={PAGES.TOP}>
         <a className={styles.siteHeaderLogo}>
@@ -16,16 +15,11 @@ const SiteHeader: FC<Props> = () => (
         </a>
       </Link>
       <ul className={cn(styles.siteHeaderMenu, styles.menu)}>
-        <li className={styles.item}>
-          <Link href={url(PAGES.DIARY_POSTS, { page: 1 })}>
-            <a className={styles.link}>Diary</a>
-          </Link>
-        </li>
         <li className={styles.item}><a href="https://twitter.com/lollipop_onl" className={styles.link}>Twitter</a></li>
         <li className={styles.item}><a href="https://qiita.com/simochee" className={styles.link}>Qiita</a></li>
       </ul>
     </div>
-  </div>
+  </header>
 );
 
 export default SiteHeader;
