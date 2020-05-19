@@ -15,8 +15,8 @@ const SiteHeader: FC<Props> = () => (
         </a>
       </Link>
       <ul className={cn(styles.siteHeaderMenu, styles.menu)}>
-        <li className={styles.item}><a href="/" className={styles.link}>Twitter</a></li>
-        <li className={styles.item}><a href="/" className={styles.link}>Qiita</a></li>
+        <li className={styles.item}><a href="https://twitter.com/lollipop_onl" className={styles.link}>Twitter</a></li>
+        <li className={styles.item}><a href="https://qiita.com/simochee" className={styles.link}>Qiita</a></li>
       </ul>
     </div>
   </div>

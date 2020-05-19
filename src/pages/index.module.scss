@@ -1,2 +1,16 @@
+@import '../styles/resources';
+
 .indexPage {
+}
+
+.entryList {
+  & {
+    @include container;
+
+    list-style: none;
+  }
+
+  & > .item {
+    margin-bottom: $margin-md;
+  }
 }

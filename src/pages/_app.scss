@@ -27,3 +27,8 @@ textarea {
   font-family: $font-family-primary;
   -webkit-font-smoothing: antialiased;
 }
+
+body {
+  color: var(--text-primary);
+  background: var(--foundation-secondary);
+}

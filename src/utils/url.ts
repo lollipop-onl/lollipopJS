@@ -8,7 +8,7 @@ export const url = (
   pathParameters: Record<string, string | number | undefined>,
 ): string => originalUrl
   .split('/')
-  .map((chunk) => chunk.replace(/^(_)(.+)/, (match, p1, p2) => {
+  .map((chunk) => chunk.replace(/^(:)(.+)/, (match, p1, p2) => {
     const parameter = pathParameters[p2];
 
     if (!parameter) {

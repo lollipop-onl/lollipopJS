@@ -5,9 +5,8 @@ import styles from './index.module.scss';
 type Props = {};
 
 const SiteLayout: FC<Props> = ({ children }) => (
-  <div>
+  <div className={styles.siteLayout}>
     <SiteHeader />
-    hello,
     {children}
   </div>
 );
