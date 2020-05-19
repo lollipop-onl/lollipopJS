@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
-import * as C from '~/constants';
+import { SITE_TITLE, PAGES } from '~/constants';
+import { url } from '~/utils';
 import styles from './index.module.scss';
 
 type Props = {};
@@ -9,12 +10,17 @@ type Props = {};
 const SiteHeader: FC<Props> = () => (
   <div className={styles.siteHeader}>
     <div className={styles.container}>
-      <Link href={C.PAGES.TOP}>
+      <Link href={PAGES.TOP}>
         <a className={styles.siteHeaderLogo}>
-          <span className={styles.logo}>{C.SITE_TITLE}</span>
+          <span className={styles.logo}>{SITE_TITLE}</span>
         </a>
       </Link>
       <ul className={cn(styles.siteHeaderMenu, styles.menu)}>
+        <li className={styles.item}>
+          <Link href={url(PAGES.DIARY_POSTS, { page: 1 })}>
+            <a className={styles.link}>Diary</a>
+          </Link>
+        </li>
         <li className={styles.item}><a href="https://twitter.com/lollipop_onl" className={styles.link}>Twitter</a></li>
         <li className={styles.item}><a href="https://qiita.com/simochee" className={styles.link}>Qiita</a></li>
       </ul>

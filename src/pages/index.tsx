@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
-import { EntryCollection, Entry } from 'contentful';
+import { Entry } from 'contentful';
 import SiteLayout from '~/components/SiteLayout';
 import { ContentfulContentType, PAGES } from '~/constants';
 import { BlogPost } from '~/types';
