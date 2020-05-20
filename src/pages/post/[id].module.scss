@@ -30,15 +30,10 @@
   }
 
   & > .thumbnail {
-    @include container;
-
     display: block;
-    margin-bottom: $margin-lg;
-
-    @include mq($sp) {
-      width: calc(100% + #{$margin-md * 2});
-      margin-left: -$margin-md;
-    }
+    width: 100%;
+    max-width: $container-width;
+    margin: 0 auto $margin-xlg;
   }
 
   & > .body {

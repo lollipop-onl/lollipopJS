@@ -2,6 +2,10 @@
 @import '../../styles/resources';
 
 .appMarkdown {
+  & {
+    word-break: break-all;
+  }
+
   img {
     display: block;
     max-width: 100%;
