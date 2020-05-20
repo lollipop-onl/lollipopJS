@@ -33,4 +33,4 @@ export type BlogPostArchive = {
   year: number;
   month: number;
   count: number;
-}
+};

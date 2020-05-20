@@ -11,7 +11,7 @@ import AppMarkdown from '~/components/AppMarkdown';
 import HeadMeta from '~/components/HeadMeta';
 import { ContentfulContentType, PAGES } from '~/constants';
 import { BlogPost } from '~/types';
-import {contentful, getTitle, url} from '~/utils';
+import { contentful, getTitle, url } from '~/utils';
 import styles from './[id].module.scss';
 
 type Props = {
@@ -42,7 +42,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const PostPage: FC<Props> = ({ entry }) => {
   const router = useRouter();
-  const { title, image, category, body } = entry.fields;
+  const {
+    title, image, category, body,
+  } = entry.fields;
   const d = dayjs(new Date(entry.sys.updatedAt));
   const categoryLink = url(PAGES.CATEGORY_POSTS, { id: category.sys.id, page: 1 });
 
