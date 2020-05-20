@@ -7,7 +7,7 @@ import dayjs from 'dayjs';
 import SiteLayout from '~/components/SiteLayout';
 import { ContentfulContentType, PAGES } from '~/constants';
 import { BlogPost } from '~/types';
-import { contentful, url } from '~/utils';
+import { contentful, getTitle, url } from '~/utils';
 import styles from './index.module.scss';
 
 type Props = {
@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 const IndexPage: FC<Props> = ({ entries }) => (
   <SiteLayout>
     <Head>
-      <title>lollipopJS</title>
+      <title>{getTitle()}</title>
     </Head>
     <div className={styles.indexPage}>
       <ol className={styles.entryList}>

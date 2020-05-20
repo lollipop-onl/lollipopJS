@@ -1,0 +1,28 @@
+@import '../styles/resources';
+
+.notFoundPage {
+  & {
+    @include container;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: $margin-xlg;
+  }
+
+  & > .title {
+    margin-top: $margin-xlg;
+    font-size: 4rem;
+    font-family: $font-family-accent;
+    font-weight: normal;
+  }
+
+  & > .message {
+    margin: $margin-xlg 0 $margin-lg;
+    font-size: 1.2rem;
+  }
+
+  & > .link {
+    font-size: 1.1rem;
+  }
+}
