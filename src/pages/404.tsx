@@ -2,7 +2,7 @@ import { FC } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import SiteLayout from '~/components/SiteLayout';
-import { PAGES} from '~/constants';
+import { PAGES } from '~/constants';
 import { getTitle } from '~/utils';
 import styles from './404.module.scss';
 

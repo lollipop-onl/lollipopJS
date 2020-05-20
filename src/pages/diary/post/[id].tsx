@@ -3,7 +3,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 import { Entry } from 'contentful';
 import SiteLayout from '~/components/SiteLayout';
-import AppMarkdown from "~/components/AppMarkdown";
+import AppMarkdown from '~/components/AppMarkdown';
 import { ContentfulContentType } from '~/constants';
 import { DiaryPost } from '~/types';
 import { contentful, getTitle } from '~/utils';
