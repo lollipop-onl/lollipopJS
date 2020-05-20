@@ -6,7 +6,6 @@ class MyDocument extends Document {
     return (
       <html lang="ja">
         <Head>
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;1,400&family=Noto+Sans+JP:wght@300;700&family=Quicksand:wght@400;700&display=swap" />
           {this.props.isDevelopment ? (
             <>
               <script src={`https://www.googletagmanager.com/gtag/js?id=${SITE_GA_TRACKING_ID}`} async />
@@ -29,6 +28,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           <script src="https://kit.fontawesome.com/502adee0f5.js" crossOrigin="anonymous" />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;1,400&family=Noto+Sans+JP:wght@300;700&family=Quicksand:wght@400;700&display=swap" />
         </body>
       </html>
     );
