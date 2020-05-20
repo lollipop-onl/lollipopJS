@@ -3,6 +3,7 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Entry } from 'contentful';
+import dayjs from 'dayjs';
 import SiteLayout from '~/components/SiteLayout';
 import { ContentfulContentType, PAGES } from '~/constants';
 import { BlogPost } from '~/types';
@@ -35,12 +36,13 @@ const IndexPage: FC<Props> = ({ entries }) => (
         {entries.map((entry) => {
           const { id } = entry.sys;
           const { title, category } = entry.fields;
+          const d = dayjs(new Date(entry.sys.updatedAt));
           const postLink = url(PAGES.BLOG_POST, { id });
           const categoryLink = url(PAGES.CATEGORY_POSTS, { id: category.sys.id, page: 1 });
 
           return (
             <li key={id} className={styles.item}>
-              <div className={styles.date}>{entry.sys.createdAt}</div>
+              <time dateTime={d.toISOString()} className={styles.date}>{d.format('YYYY/MM/DD')}</time>
               <Link href={categoryLink}>
                 <a className={styles.category}>{category.fields.name}</a>
               </Link>
