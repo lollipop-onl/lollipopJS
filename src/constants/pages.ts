@@ -1,16 +1,8 @@
+/** Page urls */
 export const PAGES = {
-  /** トップページ */
   TOP: '/',
-  /** ブログポストリスト */
-  BLOG_POSTS: '/post',
-  /** ブログポスト */
-  BLOG_POST: '/post/_slug',
-  /** ブログカテゴリ */
-  BLOG_CATEGORY: '/category/_slug',
-  /** ブログアーカイブ */
-  BLOG_ARCHIVE: '/post/_year/_month',
-  /** 日記 */
-  DIARY: '/diary',
-  /** 日記ポスト */
-  DIARY_POST: '/diary/_id',
+  BLOG_POST: '/post/:id',
+  CATEGORY_POSTS: '/category/:id/:page',
+  DIARY_POSTS: '/diary/:page',
+  DIARY_POST: '/diary/post/:id',
 };

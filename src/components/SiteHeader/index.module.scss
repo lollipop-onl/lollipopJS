@@ -1,0 +1,71 @@
+@import '../../styles/resources';
+
+$site-header-height: 80px;
+
+.siteHeader {
+  & {
+    width: 100%;
+    height: $site-header-height;
+    background: var(--secondary);
+  }
+
+  & > .container {
+    @include container-fluid;
+
+    display: flex;
+    align-items: center;
+    height: $site-header-height;
+
+    @include mq($sp) {
+      justify-content: center;
+    }
+  }
+
+  & > .container > .menu {
+    margin-left: auto;
+
+    @include mq($sp) {
+      display: none;
+    }
+  }
+}
+
+.siteHeaderLogo {
+  & {
+    color: var(--var);
+    text-decoration: none;
+  }
+
+  & > .logo {
+    font-family: $font-family-accent;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-primary);
+    text-indent: 0.3em;
+    letter-spacing: 0.3em;
+
+    @include mq($sp) {
+      font-size: 20px;
+    }
+  }
+}
+
+.siteHeaderMenu {
+  & {
+    display: flex;
+    margin: 0;
+    list-style: none;
+  }
+
+  & > .item {
+    margin-right: $margin-md;
+  }
+
+  & > .item > .link {
+    font-family: $font-family-accent;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+}

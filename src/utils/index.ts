@@ -1,4 +1,3 @@
-export * from './copy';
-export * from './markdown';
-export * from './qv';
+export * from './Contentful';
+export * from './title';
 export * from './url';

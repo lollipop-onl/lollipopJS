@@ -1,0 +1,6 @@
+// Media Query
+@mixin mq($selector, $mediaType: screen) {
+  @media #{$mediaType} and (#{$selector}) {
+    @content;
+  }
+}

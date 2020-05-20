@@ -1,0 +1,50 @@
+@import '../../styles/resources';
+
+.siteFooter {
+  & {
+    width: 100%;
+    background: var(--foundation-secondary);
+  }
+
+  & > .container {
+    @include container;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    padding: $margin-md 0 $margin-md;
+  }
+
+  & > .container > .copyright {
+    font-family: $font-family-accent;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--text-secondary);
+  }
+
+  & > .container > .version {
+    margin: 0 $margin-sm 0 auto;
+    font-family: $font-family-accent;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  & > .container > .link {
+    display: inline-block;
+    font-family: $font-family-accent;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  & > .container > .ga {
+    width: 100%;
+    margin: $margin-sm 0 $margin-md;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+  }
+
+  & > .container > .ga > .link {
+    display: inline-block;
+    margin-top: $margin-xsm;
+  }
+}
