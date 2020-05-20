@@ -27,8 +27,8 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <script src="https://kit.fontawesome.com/502adee0f5.js" crossOrigin="anonymous" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;1,400&family=Noto+Sans+JP:wght@300;700&family=Quicksand:wght@400;700&display=swap" />
+          <script src="https://kit.fontawesome.com/502adee0f5.js" crossOrigin="anonymous" />
         </body>
       </html>
     );
