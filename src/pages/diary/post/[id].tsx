@@ -3,10 +3,11 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 import { Entry } from 'contentful';
 import SiteLayout from '~/components/SiteLayout';
+import AppMarkdown from "~/components/AppMarkdown";
 import { ContentfulContentType } from '~/constants';
 import { DiaryPost } from '~/types';
 import { contentful, getTitle } from '~/utils';
-// import styles from './[id].scss';
+import styles from './[id].module.scss';
 
 type Props = {
   entry: Entry<DiaryPost>
@@ -35,14 +36,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const DiaryPostPage: FC<Props> = ({ entry }) => {
-  const { title } = entry.fields;
+  const { title, body } = entry.fields;
 
   return (
     <SiteLayout>
       <Head>
         <title>{getTitle(title)}</title>
       </Head>
-      <h1>{title}</h1>
+      <div className={styles.diaryPost}>
+        <h1 className={styles.title}>{title}</h1>
+        <AppMarkdown className={styles.body} source={body} />
+      </div>
     </SiteLayout>
   );
 };

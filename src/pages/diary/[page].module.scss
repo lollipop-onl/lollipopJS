@@ -1,0 +1,21 @@
+@import '../../styles/resources';
+
+.diaryPostsPage {
+  & {
+    padding-top: $margin-xlg;
+  }
+
+  & > .posts {
+    @include container;
+  }
+}
+
+.diaryPosts {
+  & {
+    list-style: none;
+  }
+
+  & > .post {
+    margin-bottom: $margin-md;
+  }
+}

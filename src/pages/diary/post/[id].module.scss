@@ -1,0 +1,17 @@
+@import '../../../styles/resources';
+
+.diaryPost {
+  & {
+    padding-top: $margin-xlg;
+  }
+
+  & > .title {
+    @include container;
+
+    margin-bottom: $margin-lg;
+  }
+
+  & > .body {
+    @include container;
+  }
+}
