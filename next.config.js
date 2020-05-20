@@ -9,4 +9,9 @@ module.exports = {
     CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
   },
   exportTrailingSlash: true,
+  exportPathMap: () => {
+    return {
+      '/404.html': { page: '/404' },
+    };
+  },
 };
