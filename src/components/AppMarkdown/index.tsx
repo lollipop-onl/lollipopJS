@@ -11,7 +11,12 @@ type Props = {
 const AppMarkdown: FC<Props> = ({ className, source }) => {
   const html = markdown(source);
 
-  return <section className={cn(styles.appMarkdown, className)} dangerouslySetInnerHTML={{ __html: html }} />;
+  return (
+    <section
+      className={cn(styles.appMarkdown, className)}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
 };
 
 export default AppMarkdown;

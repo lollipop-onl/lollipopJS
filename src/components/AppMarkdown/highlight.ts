@@ -8,6 +8,7 @@ const wrap = (render?: RenderRule): RenderRule | undefined => {
     return render;
   }
 
+  // eslint-disable-next-line func-names
   return function (this: any, ...args) {
     return render
       .apply(this, args)

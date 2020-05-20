@@ -27,7 +27,7 @@ const parseLanguage = (src: string): Language => {
   const extMatches = src.match(/\.([^.]+)$/);
 
   if (extMatches) {
-    const [_, extension] = extMatches;
+    const [, extension] = extMatches;
 
     if (hljs.getLanguage(extension)) {
       // @ts-ignore

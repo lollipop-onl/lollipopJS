@@ -7,7 +7,7 @@ import SiteLayout from '~/components/SiteLayout';
 import { ContentfulContentType, PAGES } from '~/constants';
 import { DiaryPost } from '~/types';
 import { contentful, getTitle, url } from '~/utils';
-import styles from './[page].scss';
+// import styles from './[page].scss';
 
 type Props = {
   entries: Entry<DiaryPost>[]
