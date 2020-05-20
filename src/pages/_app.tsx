@@ -1,8 +1,12 @@
 import { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import Router from 'next/router';
+import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import { debounce } from 'throttle-debounce';
 import './_app.scss';
+
+const WebFont = dynamic(import('../components/WebFont'), { ssr: false });
 
 const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
@@ -40,7 +44,12 @@ const App = ({ Component, pageProps }: AppProps) => {
   }, []);
 
   return (
-    <Component {...pageProps} />
+    <>
+      <Head>
+        <WebFont />
+      </Head>
+      <Component {...pageProps} />
+    </>
   );
 };
 
