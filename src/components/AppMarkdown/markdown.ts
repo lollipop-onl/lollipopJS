@@ -25,8 +25,6 @@ md.use(highlight);
  * MarkdownをHTMLにパースする
  * @param source
  */
-const markdown = (source: string): string => {
-  return md.render(source);
-};
+const markdown = (source: string): string => md.render(source);
 
 export default markdown;

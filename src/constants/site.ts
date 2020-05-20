@@ -1,5 +1,5 @@
 /** Base url of lollipopJS */
-export const SITE_BASE_URL = 'https://js.lollipop.onl'
+export const SITE_BASE_URL = 'https://js.lollipop.onl';
 
 /** Title of lollipopJS */
 export const SITE_TITLE = 'lollipopJS';

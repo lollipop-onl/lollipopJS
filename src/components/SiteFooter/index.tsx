@@ -11,7 +11,7 @@ const SiteFooter: FC<Props> = () => (
     <div className={styles.container}>
       <div className={styles.ga}>
         このサイトはGoogleアナリティクスを使用しています。
-        <br/>
+        <br />
         <a className={styles.link} href="https://support.google.com/analytics/answer/4597324" target="_blank" rel="noopener noreferrer">Googleアナリティクスポリシー</a>
       </div>
       <small className={styles.copyright}>
