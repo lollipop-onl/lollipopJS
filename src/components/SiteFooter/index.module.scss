@@ -11,20 +11,40 @@
 
     display: flex;
     align-items: flex-end;
-    padding: $margin-lg 0 $margin-md;
+    flex-wrap: wrap;
+    padding: $margin-md 0 $margin-md;
   }
 
   & > .container > .copyright {
-    margin-right: auto;
     font-family: $font-family-accent;
     font-weight: bold;
+    font-size: 0.8rem;
     color: var(--text-secondary);
+  }
+
+  & > .container > .version {
+    font-family: $font-family-accent;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin: 0 $margin-sm 0 auto;
   }
 
   & > .container > .link {
     display: inline-block;
-    margin-right: $margin-sm;
+    font-size: 0.9rem;
     font-family: $font-family-accent;
     color: var(--text-secondary);
+  }
+
+  & > .container > .ga {
+    margin: $margin-sm 0 $margin-md;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    width: 100%;
+  }
+
+  & > .container > .ga > .link {
+    display: inline-block;
+    margin-top: $margin-xsm;
   }
 }
