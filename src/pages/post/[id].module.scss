@@ -8,7 +8,7 @@
   & > .title {
     @include container-fluid;
 
-    margin-bottom: $margin-xlg;
+    margin-bottom: $margin-lg;
     line-height: 1.5;
 
     @include mq($pc) {
@@ -25,9 +25,44 @@
     }
   }
 
+  & > .meta {
+    margin-bottom: $margin-lg;
+  }
+
+  & > .thumbnail {
+    @include container;
+
+    display: block;
+    margin-bottom: $margin-lg;
+
+    @include mq($sp) {
+      width: calc(100% + #{$margin-md * 2});
+      margin-left: -$margin-md;
+    }
+  }
+
   & > .body {
     @include container;
 
     line-height: 1.8;
+  }
+}
+
+.postMeta {
+  & {
+    @include container;
+
+    display: flex;
+    align-items: center;
+  }
+
+  & > .category {
+    color: var(--primary);
+  }
+
+  & > .date {
+    margin-left: auto;
+    font-size: 0.9rem;
+    font-family: $font-family-accent;
   }
 }
