@@ -10,37 +10,37 @@
     @include container;
 
     display: flex;
-    align-items: flex-end;
     flex-wrap: wrap;
+    align-items: flex-end;
     padding: $margin-md 0 $margin-md;
   }
 
   & > .container > .copyright {
     font-family: $font-family-accent;
-    font-weight: bold;
     font-size: 0.8rem;
+    font-weight: bold;
     color: var(--text-secondary);
   }
 
   & > .container > .version {
-    font-family: $font-family-accent;
-    color: var(--text-secondary);
-    font-size: 0.8rem;
     margin: 0 $margin-sm 0 auto;
+    font-family: $font-family-accent;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
   }
 
   & > .container > .link {
     display: inline-block;
-    font-size: 0.9rem;
     font-family: $font-family-accent;
+    font-size: 0.9rem;
     color: var(--text-secondary);
   }
 
   & > .container > .ga {
+    width: 100%;
     margin: $margin-sm 0 $margin-md;
     font-size: 0.7rem;
     color: var(--text-secondary);
-    width: 100%;
   }
 
   & > .container > .ga > .link {

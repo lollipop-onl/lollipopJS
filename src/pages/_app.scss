@@ -5,22 +5,22 @@
 // Variables
 :root {
   // Color palette
-  --primary: #2B4E72;
-  --secondary: #FFE34D;
+  --primary: #2b4e72;
+  --secondary: #ffe34d;
   --accent: #00f;
-  --foundation-primary: #FFF8F0;
-  --foundation-secondary: #BABFD1;
+  --foundation-primary: #fff8f0;
+  --foundation-secondary: #babfd1;
   --text-primary: #080708;
   --text-secondary: rgb(25, 25, 25, 0.8);
   --text-link: var(--primary);
 
   @media (prefers-color-scheme: dark) {
-    --primary: #FFC52C;
-    --secondary: #EBB128;
+    --primary: #ffc52c;
+    --secondary: #ebb128;
     --accent: #00f;
-    --foundation-primary: #221D23;
-    --foundation-secondary: #2D3047;
-    --text-primary: #E8E9ED;
+    --foundation-primary: #221d23;
+    --foundation-secondary: #2d3047;
+    --text-primary: #e8e9ed;
     --text-secondary: rgb(255, 255, 255, 0.8);
   }
 }

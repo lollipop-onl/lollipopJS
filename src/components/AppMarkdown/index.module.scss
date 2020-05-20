@@ -14,8 +14,8 @@
   }
 
   code {
-    font-family: $font-family-mono;
     padding: 0 0.3em;
+    font-family: $font-family-mono;
   }
 
   :global {
@@ -70,7 +70,7 @@
     .hljs-selector-class,
     .hljs-regexp,
     .hljs-deletion {
-      color: #cc6666;
+      color: #c66;
     }
 
     /* Tomorrow Orange */
@@ -112,11 +112,11 @@
 
     .hljs {
       display: block;
-      overflow-x: auto;
-      background: #1d1f21;
-      color: #c5c8c6;
-      font-family: $font-family-mono;
       padding: $margin-sm $margin-md $margin-md;
+      overflow-x: auto;
+      font-family: $font-family-mono;
+      color: #c5c8c6;
+      background: #1d1f21;
     }
 
     .hljs-emphasis {
