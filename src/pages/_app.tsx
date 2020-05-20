@@ -24,10 +24,11 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   useEffect(() => {
     const handleRouteChange = (url) => {
-      // @ts-ignore
-      if (window.gtag) {
+      try {
         // @ts-ignore
         window.gtag.pageview(url);
+      } catch (err) {
+        // do nothing.
       }
     };
 
