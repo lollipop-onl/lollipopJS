@@ -2,8 +2,10 @@ import { FC } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 import { Entry } from 'contentful';
 import dayjs from 'dayjs';
+import HeadMeta from "~/components/HeadMeta";
 import SiteLayout from '~/components/SiteLayout';
 import { ContentfulContentType } from '~/constants';
 import { DiaryPost } from '~/types';
@@ -39,6 +41,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const DiaryPostPage: FC<Props> = ({ entry }) => {
+  const router = useRouter();
   const { title, body } = entry.fields;
   const d = dayjs(entry.sys.createdAt).utcOffset(9);
 
@@ -46,6 +49,11 @@ const DiaryPostPage: FC<Props> = ({ entry }) => {
     <SiteLayout>
       <Head>
         <title>{getTitle(title)}</title>
+        <HeadMeta
+          title={getTitle(title)}
+          path={router.asPath}
+          image=""
+        />
       </Head>
       <div className={styles.diaryPost}>
         <h1 className={styles.title}>{title}</h1>
