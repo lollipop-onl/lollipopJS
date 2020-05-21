@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import WebFontLoader from 'webfontloader';
 
 type Props = {};
@@ -6,7 +6,7 @@ type Props = {};
 const WebFont: FC<Props> = () => {
   WebFontLoader.load({
     google: {
-      families: ['DM+Mono:ital,wght@0,300;0,500;1,300;1,500', 'Noto+Sans+JP:wght@300;700', 'Quicksand:wght@500;700'],
+      families: ['DM+Mono', 'Noto+Sans+JP:wght@300;700', 'Quicksand:wght@500;700'],
     },
   });
 

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import Router from 'next/router';
-import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { debounce } from 'throttle-debounce';
 import dayjs from 'dayjs';
@@ -49,9 +48,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <Head>
-        <WebFont />
-      </Head>
+      <WebFont />
       <Component {...pageProps} />
     </>
   );

@@ -17,13 +17,12 @@
     }
   }
 
-  code {
-    padding: 0 0.3em;
-    font-family: $font-family-mono;
-  }
-
   :global {
     /* stylelint-disable comment-empty-line-before, rscss/class-format */
+    code {
+      padding: 0 0.3em;
+      font-family: $font-family-mono;
+    }
 
     .codeBlock {
       & {
