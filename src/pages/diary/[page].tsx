@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { Entry } from 'contentful';
 import cn from 'classnames';
+import dayjs from 'dayjs';
 import SiteLayout from '~/components/SiteLayout';
 import { ContentfulContentType, PAGES } from '~/constants';
 import { DiaryPost } from '~/types';
@@ -41,13 +42,17 @@ const DiaryPostPage: FC<Props> = ({ entries }) => (
     <div className={styles.diaryPostsPage}>
       <ol className={cn(styles.diaryPosts, styles.posts)}>
         {entries.map((entry) => {
-          const { id } = entry.sys;
+          const { id, createdAt } = entry.sys;
           const { title } = entry.fields;
           const postLink = url(PAGES.DIARY_POST, { id });
+          const d = dayjs(createdAt);
 
           return (
-            <li key={id} className={styles.post}>
-              <Link href={postLink}><a>{title}</a></Link>
+            <li key={id} className={cn(styles.diaryPost, styles.post)}>
+              <time className={styles.date} dateTime={d.toISOString()}>
+                {d.format('MMM D, YYYY')}
+              </time>
+              <Link href={postLink}><a className={styles.title}>{title}</a></Link>
             </li>
           );
         })}

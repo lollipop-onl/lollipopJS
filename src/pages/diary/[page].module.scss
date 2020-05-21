@@ -16,6 +16,31 @@
   }
 
   & > .post {
-    margin-bottom: $margin-md;
+    margin-bottom: $margin-lg;
+  }
+}
+
+.diaryPost {
+  & {
+    display: flex;
+
+    @include mq($pc) {
+      align-items: center;
+    }
+
+    @include mq($sp) {
+      flex-direction: column;
+    }
+  }
+
+  & > .date {
+    width: 7.5rem;
+    font-size: 0.8rem;
+  }
+
+  & > .title {
+    @include mq($sp) {
+      margin-top: $margin-xsm;
+    }
   }
 }

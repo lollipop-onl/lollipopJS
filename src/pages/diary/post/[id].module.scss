@@ -11,6 +11,16 @@
     margin-bottom: $margin-lg;
   }
 
+  & > .date {
+    @include container;
+
+    display: block;
+    margin-bottom: $margin-xlg;
+    font-family: $font-family-accent;
+    font-weight: bold;
+    color: var(--text-secondary);
+  }
+
   & > .body {
     @include container;
   }
