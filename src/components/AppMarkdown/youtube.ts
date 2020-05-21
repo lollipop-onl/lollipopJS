@@ -8,14 +8,9 @@ const youtubeRuler: ParserBlock.RuleBlock = (state, startLine, endLine, silent) 
   const pos = state.bMarks[startLine] + state.tShift[startLine];
   const posMax = state.eMarks[startLine];
   const line = state.src.slice(pos, posMax);
+  const youtubeUrl = /^https?:\/\/(?:www\.)?(?:youtube\.com\/watch.+|youtu\.be\/[0-9a-zA-Z-]+)$/.exec(line);
 
-  if (!line.startsWith(YOUTUBE_COMMAND) || pos >= posMax) {
-    return false;
-  }
-
-  const youtubeUrl = /\bhttps?:\/\/(?:www\.)?(?:youtube\.com\/watch.+|youtu\.be\/[0-9a-zA-Z-]+)\b/.exec(line);
-
-  if (!youtubeUrl) {
+  if (!youtubeUrl || pos >= posMax) {
     return false;
   }
 
