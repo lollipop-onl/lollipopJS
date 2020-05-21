@@ -43,14 +43,7 @@ const youtubeTokenizer = (md: MarkdownIt): RenderRule => (tokens, index) => {
   const videoId = md.utils.escapeHtml(matches[1]);
 
   return `
-  <div class="youtubeVideo">
-    <iframe
-      src="https://www.youtube-nocookie.com/embed/${videoId}"
-      class="iframe"
-      frameborder="0"
-      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-    ></iframe>
+  <div class="youtubeVideo" data-video-id="${videoId}">
   </div>
   `;
 };
