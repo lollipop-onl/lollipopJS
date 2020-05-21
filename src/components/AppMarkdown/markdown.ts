@@ -3,12 +3,14 @@ import markdownIt from 'markdown-it';
 import externalLinks from 'markdown-it-external-links';
 import highlight from './highlight';
 import youtube from './youtube';
+import jsfiddle from './jsfiddle';
 
 const md = markdownIt({
   breaks: true,
 });
 
 md.use(youtube);
+md.use(jsfiddle);
 
 // 外部リンクのプラグインを登録する
 md.use(externalLinks, {

@@ -85,6 +85,23 @@
       }
     }
 
+    .jsfiddleEmbed {
+      & {
+        margin: $margin-lg 0;
+
+        @include mq($sp) {
+          width: calc(100% + #{$margin-md * 2});
+          margin-left: -$margin-md;
+        }
+      }
+
+      & > iframe {
+        width: 100%;
+        min-height: 320px;
+        max-height: calc(var(--vh, 1vh) * 60);
+      }
+    }
+
     /* Tomorrow Night Theme */
     /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
     /* Original theme - https://github.com/chriskempson/tomorrow-theme */
