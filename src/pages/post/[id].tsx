@@ -47,7 +47,7 @@ const PostPage: FC<Props> = ({ entry }) => {
   const {
     title, image, category, body,
   } = entry.fields;
-  const d = dayjs(new Date(entry.sys.updatedAt));
+  const d = dayjs(new Date(entry.sys.updatedAt)).utcOffset(9);
   const categoryLink = url(PAGES.CATEGORY_POSTS, { id: category.sys.id, page: 1 });
 
   return (
