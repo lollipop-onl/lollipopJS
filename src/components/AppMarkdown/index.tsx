@@ -33,6 +33,7 @@ const AppMarkdown: FC<Props> = ({ className, source }) => {
 
       iframeElement.classList.add('iframe');
       iframeElement.setAttribute('src', `https://www.youtube-nocookie.com/embed/${videoId}`);
+      iframeElement.setAttribute('title', 'YouTube video player');
       iframeElement.setAttribute('frameborder', '0');
       iframeElement.setAttribute('allow', 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture');
       iframeElement.setAttribute('allowfullscreen', '');
