@@ -18,6 +18,7 @@ type Props = {
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const { items: entries } = await contentful.client.getEntries<DiaryPost>({
     content_type: ContentfulContentType.DIARY_POST,
+    order: '-sys.createdAt',
   });
 
   return {
