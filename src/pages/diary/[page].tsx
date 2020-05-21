@@ -45,7 +45,7 @@ const DiaryPostPage: FC<Props> = ({ entries }) => (
           const { id, createdAt } = entry.sys;
           const { title } = entry.fields;
           const postLink = url(PAGES.DIARY_POST, { id });
-          const d = dayjs(createdAt);
+          const d = dayjs(createdAt).utcOffset(9);
 
           return (
             <li key={id} className={cn(styles.diaryPost, styles.post)}>

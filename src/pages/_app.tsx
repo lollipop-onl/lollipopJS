@@ -4,7 +4,11 @@ import Router from 'next/router';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { debounce } from 'throttle-debounce';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 import './_app.scss';
+
+dayjs.extend(utc);
 
 const WebFont = dynamic(import('../components/WebFont'), { ssr: false });
 

@@ -38,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const DiaryPostPage: FC<Props> = ({ entry }) => {
   const { title, body } = entry.fields;
-  const d = dayjs(entry.sys.createdAt);
+  const d = dayjs(entry.sys.createdAt).utcOffset(9);
 
   return (
     <SiteLayout>
@@ -47,7 +47,7 @@ const DiaryPostPage: FC<Props> = ({ entry }) => {
       </Head>
       <div className={styles.diaryPost}>
         <h1 className={styles.title}>{title}</h1>
-        <time className={styles.date} dateTime={d.toISOString()}>{d.format('YYYY/MM/DD h:mm A')}</time>
+        <time className={styles.date} dateTime={d.toISOString()}>{d.format('YYYY/MM/DD H:mm')} JST</time>
         <AppMarkdown className={styles.body} source={body} />
       </div>
     </SiteLayout>
