@@ -20,7 +20,7 @@ const HeadMeta: FC<Props> = ({
       <meta name="og:type" content="website" />
       <meta name="og:url" content={url} />
       <meta name="og:image" content={imageUrl} />
-      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={SITE_TWITTER_ID} />
       <meta name="twitter:creator" content={SITE_TWITTER_ID} />
     </>
