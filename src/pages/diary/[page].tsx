@@ -47,7 +47,7 @@ const DiaryPostPage: FC<Props> = ({ entries }) => (
 
           return (
             <li key={id} className={styles.post}>
-              <Link href={postLink}>{title}</Link>
+              <Link href={postLink}><a>{title}</a></Link>
             </li>
           );
         })}

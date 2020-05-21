@@ -32,6 +32,10 @@
           margin-left: -$margin-md;
         }
       }
+
+      & > code {
+        display: block;
+      }
     }
 
     .codeBlockHeader {
@@ -51,6 +55,33 @@
       & > .name > .icon {
         margin-right: $margin-xsm;
         font-size: 0.8rem;
+      }
+    }
+
+    .youtubeVideo {
+      & {
+        position: relative;
+        width: 100%;
+        margin: $margin-lg 0;
+
+        @include mq($sp) {
+          width: calc(100% + #{$margin-md * 2});
+          margin-left: -$margin-md;
+        }
+      }
+
+      &::before {
+        display: block;
+        padding-top: 56.25%;
+        content: '';
+      }
+
+      & > .iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
       }
     }
 
