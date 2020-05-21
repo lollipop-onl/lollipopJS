@@ -1,7 +1,12 @@
 import { PluginSimple } from 'markdown-it';
 import { RenderRule } from 'markdown-it/lib/renderer';
-import hljs from 'highlight.js';
+import hljs from 'highlight.js/lib/core';
+import languages from './languages';
 import parseLanguage from './parseLanguage';
+
+Object.entries(languages).forEach(([name, language]) => {
+  hljs.registerLanguage(name, language);
+});
 
 const wrap = (render?: RenderRule): RenderRule | undefined => {
   if (!render) {

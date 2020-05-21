@@ -1,8 +1,11 @@
 require('dotenv').config();
 
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 const packageJson = require('./package.json');
 
-module.exports = {
+module.exports = withBundleAnalyzer({
   env: {
     VERSION: packageJson.version,
     CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
@@ -14,4 +17,4 @@ module.exports = {
       '/404.html': { page: '/404' },
     };
   },
-};
+});

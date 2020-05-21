@@ -3,16 +3,18 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { Entry } from 'contentful';
 import dayjs from 'dayjs';
 import cn from 'classnames';
 import SiteLayout from '~/components/SiteLayout';
-import AppMarkdown from '~/components/AppMarkdown';
 import HeadMeta from '~/components/HeadMeta';
 import { ContentfulContentType, PAGES } from '~/constants';
 import { BlogPost } from '~/types';
 import { contentful, getTitle, url } from '~/utils';
 import styles from './[id].module.scss';
+
+const AppMarkdown = dynamic(import('~/components/AppMarkdown'));
 
 type Props = {
   entry: Entry<BlogPost>

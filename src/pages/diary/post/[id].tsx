@@ -1,14 +1,16 @@
 import { FC } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import { Entry } from 'contentful';
 import dayjs from 'dayjs';
 import SiteLayout from '~/components/SiteLayout';
-import AppMarkdown from '~/components/AppMarkdown';
 import { ContentfulContentType } from '~/constants';
 import { DiaryPost } from '~/types';
 import { contentful, getTitle } from '~/utils';
 import styles from './[id].module.scss';
+
+const AppMarkdown = dynamic(import('~/components/AppMarkdown'));
 
 type Props = {
   entry: Entry<DiaryPost>
