@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { Entry } from 'contentful';
 import dayjs from 'dayjs';
-import HeadMeta from "~/components/HeadMeta";
+import HeadMeta from '~/components/HeadMeta';
 import SiteLayout from '~/components/SiteLayout';
 import { ContentfulContentType } from '~/constants';
 import { DiaryPost } from '~/types';
@@ -44,6 +44,8 @@ const DiaryPostPage: FC<Props> = ({ entry }) => {
   const router = useRouter();
   const { title, body } = entry.fields;
   const d = dayjs(entry.sys.createdAt).utcOffset(9);
+
+  console.log(router);
 
   return (
     <SiteLayout>

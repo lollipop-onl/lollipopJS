@@ -2,6 +2,7 @@ import markdownIt from 'markdown-it';
 // @ts-ignore
 import externalLinks from 'markdown-it-external-links';
 import highlight from './highlight';
+import gyazo from './gyazo';
 import youtube from './youtube';
 import jsfiddle from './jsfiddle';
 
@@ -9,6 +10,7 @@ const md = markdownIt({
   breaks: true,
 });
 
+md.use(gyazo);
 md.use(youtube);
 md.use(jsfiddle);
 
