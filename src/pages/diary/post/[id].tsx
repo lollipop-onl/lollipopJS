@@ -45,8 +45,6 @@ const DiaryPostPage: FC<Props> = ({ entry }) => {
   const { title, body } = entry.fields;
   const d = dayjs(entry.sys.createdAt).utcOffset(9);
 
-  console.log(router);
-
   return (
     <SiteLayout>
       <Head>

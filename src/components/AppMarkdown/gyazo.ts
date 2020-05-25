@@ -8,8 +8,6 @@ const gyazoRuler: ParserBlock.RuleBlock = (state, startLine, endLine, silent) =>
   const line = state.src.slice(pos, posMax);
   const gyazoUrl = /^(?:https?:)?\/\/(?:i\.)?gyazo\.com\/([a-z0-9]+)(?:\.[a-z0-9])?/.exec(line);
 
-  console.log(gyazoUrl);
-
   if (!gyazoUrl || pos >= posMax) {
     return false;
   }
