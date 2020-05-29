@@ -52,7 +52,8 @@
   "repository": "https://github.com/lollipop-onl/lollipopJS.git",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export -o dist",
+    "build": "next build && next export -o dist && yarn sitemap",
+    "sitemap": "node scripts/sitemap-generator.js",
     "lint:js": "eslint --ext ts,tsx .",
     "lint:css": "stylelint \"src/**/*.scss\""
   }
