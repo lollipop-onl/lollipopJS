@@ -9,7 +9,7 @@
     "dayjs": "^1.8.27",
     "dotenv": "^8.2.0",
     "fontfaceobserver": "^2.1.0",
-    "highlight.js": "^10.0.3",
+    "highlight.js": "^10.1.2",
     "markdown-it": "^11.0.0",
     "markdown-it-external-links": "^0.0.6",
     "next": "^9.4.1",
